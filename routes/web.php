@@ -173,6 +173,7 @@ Route::controller(UserLoginController::class)->group(function () {
 
 Route::get('/login-otp', [UserLoginController::class, 'loginWithOtp'])->name('user.loginWithOtp');
 Route::post('/firebase-login', [UserLoginController::class, 'firebaseLogin'])->name('user.firebaseLogin');
+Route::post('/otp-trusted-check', [UserLoginController::class, 'checkTrustedDevice'])->name('user.otpTrustedCheck');
 
 //Register
 Route::controller(RegisterController::class)->group(function () {
