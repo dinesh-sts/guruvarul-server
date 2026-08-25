@@ -18,7 +18,9 @@ use App\Models\Height;
 use App\Models\Ignore;
 use App\Models\Income;
 use App\Models\Occupation;
+use App\Models\Rasi;
 use App\Models\SiteConfig;
+use App\Models\Star;
 //use App\Models\Register;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Auth;
@@ -36,10 +38,12 @@ class SearchController extends Controller
         $occupations = Occupation::where('status',"APPROVED")->get();
         $incomes = Income::where('status',"APPROVED")->get();
         $heights = Height::all();
+        $stars = Star::where('status',"APPROVED")->get();
+        $rashies = Rasi::where('status',"APPROVED")->get();
         $fieldsetting = FieldSetting::first();
         $request->session()->forget('searchResultData');
         $request->session()->forget('formData');
-        return view('user.searchUser',compact('fieldsetting','religions','ages','countries','edu_details','occupations','incomes','heights'));
+        return view('user.searchUser',compact('fieldsetting','religions','ages','countries','edu_details','occupations','incomes','heights','stars','rashies'));
     }
     
     //search form data fatch
@@ -107,6 +111,16 @@ class SearchController extends Controller
         $part_occu = isset($formDataArray['part_occu']) ? $formDataArray['part_occu'] : null;
         if (!is_null($part_occu) && !empty($part_occu)) {
             $data->whereIn('occupation', $part_occu);
+        }
+
+        $part_star = isset($formDataArray['part_star']) ? $formDataArray['part_star'] : null;
+        if (!is_null($part_star) && !empty($part_star)) {
+            $data->whereIn('star', $part_star);
+        }
+
+        $part_rasi = isset($formDataArray['part_rasi']) ? $formDataArray['part_rasi'] : null;
+        if (!is_null($part_rasi) && !empty($part_rasi)) {
+            $data->whereIn('moonsign', $part_rasi);
         }
 
         $looking_for = isset($formDataArray['m_status']) ? $formDataArray['m_status'] : null;
@@ -250,19 +264,22 @@ public function result(Request $request)
     $religions = Religion::where('status', "APPROVED")->get();
     $casties = Caste::where('status', "APPROVED")->get();
     $ages = Age::all();
+    $stars = Star::where('status', "APPROVED")->get();
+    $rashies = Rasi::where('status', "APPROVED")->get();
     $siteconfig = SiteConfig::first();
 
-    // Fetch all users or data you want to paginate
-    //$data = Registers::where('status', 'APPROVED')->get();  // example, replace User with your model
-    //$data = Register::all();
-    $data = Register::whereNotIn('status', ['Inactive','Expired','Suspended'])
-        ->when(Auth::guard('user')->check(), function($query) {
-            $log_inid = Auth::guard('user')->user();
-            // Only opposite gender
-            $query->where('gender', '!=', $log_inid->gender);
-        })
-        ->orderBy('created_at','desc')
-        ->get();
+    // Fetch filtered search results from session when available
+    $data = $request->session()->get('searchResultData');
+    if ($data === null) {
+        $data = Register::whereNotIn('status', ['Inactive','Expired','Suspended'])
+            ->when(Auth::guard('user')->check(), function($query) {
+                $log_inid = Auth::guard('user')->user();
+                // Only opposite gender
+                $query->where('gender', '!=', $log_inid->gender);
+            })
+            ->orderBy('created_at','desc')
+            ->get();
+    }
 
     $perPage = 25;
     $currentPage = LengthAwarePaginator::resolveCurrentPage();
@@ -278,12 +295,12 @@ public function result(Request $request)
     if (Auth::guard('user')->check()) {
         return view('user.afterLoginSearchResult', compact(
             'fieldsetting', 'casties', 'result', 'siteconfig',
-            'religions', 'ages', 'heights', 'edu_details', 'occupations', 'countries'
+            'religions', 'ages', 'heights', 'edu_details', 'occupations', 'countries', 'stars', 'rashies'
         ));
     } else {
         return view('user.beforeLoginSearchResult', compact(
             'fieldsetting', 'casties', 'result', 'siteconfig',
-            'religions', 'ages', 'heights', 'edu_details', 'occupations', 'countries'
+            'religions', 'ages', 'heights', 'edu_details', 'occupations', 'countries', 'stars', 'rashies'
         ));
     }
 }
@@ -415,6 +432,16 @@ public function result(Request $request)
                     $query->orWhereRaw("FIND_IN_SET(?, edu_detail)", [$eduValue]);
                 }
             });
+        }
+        //fatch star (nakshatra)
+        $part_star = isset($formDataArray['part_star']) ? $formDataArray['part_star'] : null;
+        if (!is_null($part_star) && !empty($part_star)) {
+            $data->whereIn('star', $part_star);
+        }
+        //fatch rasi / moonsign
+        $part_rasi = isset($formDataArray['part_rasi']) ? $formDataArray['part_rasi'] : null;
+        if (!is_null($part_rasi) && !empty($part_rasi)) {
+            $data->whereIn('moonsign', $part_rasi);
         }
         $data = $data->orderBy('created_at',"desc")->get();
         $request->session()->put('searchResultData', $data);
