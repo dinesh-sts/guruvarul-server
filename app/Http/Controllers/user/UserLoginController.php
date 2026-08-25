@@ -22,6 +22,45 @@ use Illuminate\Support\Facades\Cache;
 
 class UserLoginController extends Controller
 {
+    private const OTP_TRUST_COOKIE = 'otp_trusted_device';
+    private const OTP_TRUST_DAYS = 30;
+
+    private function otpTrustMinutes(): int
+    {
+        return self::OTP_TRUST_DAYS * 24 * 60;
+    }
+
+    private function setOtpTrustedDevice(Register $user): void
+    {
+        cookie()->queue(cookie(
+            self::OTP_TRUST_COOKIE,
+            (string) $user->id,
+            $this->otpTrustMinutes()
+        ));
+    }
+
+    private function getTrustedUser(?string $mobile = null): ?Register
+    {
+        $userId = request()->cookie(self::OTP_TRUST_COOKIE);
+        if (!$userId) {
+            return null;
+        }
+
+        $user = Register::find($userId);
+        if (!$user || in_array($user->status, ['Inactive', 'Suspended'], true)) {
+            return null;
+        }
+
+        if ($mobile !== null) {
+            $mobile = preg_replace('/[^0-9]/', '', $mobile);
+            if ((string) $user->mobile !== (string) $mobile) {
+                return null;
+            }
+        }
+
+        return $user;
+    }
+
     public function changePassword()
     {
         return view('user.changePassword');
@@ -133,20 +172,43 @@ class UserLoginController extends Controller
 
     public function loginWithOtp()
     {
+        if (Auth::guard('user')->check()) {
+            return redirect()->route('user.dashboard');
+        }
+
         $activeapi = Sms::where('key', 'activeapi')->value('value');
-        // dd($activeapi);
         // Load the right view based on the active SMS provider
         switch ($activeapi) {
             case 'fast2sms':
                 return view('user.loginWithOtp');  // Your Fast2SMS view
             case 'firebase':
                 return view('user.firebase_otp');  // Your Firebase OTP view
-                // dd($activeapi);
             default:
                 return view('user.loginWithOtp');   // Fallback to default
         }
     }
 
+    public function checkTrustedDevice(Request $request)
+    {
+        $phone = preg_replace('/[^0-9]/', '', (string) $request->phone);
+        $trustedUser = $this->getTrustedUser($phone);
+
+        if ($trustedUser) {
+            Auth::guard('user')->login($trustedUser);
+            $this->setOtpTrustedDevice($trustedUser);
+
+            return response()->json([
+                'status' => 'success',
+                'trusted' => true,
+                'redirect' => route('user.dashboard'),
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'trusted' => false,
+        ]);
+    }
 
     public function firebaseLogin(Request $request)
     {
@@ -166,6 +228,7 @@ class UserLoginController extends Controller
 
         if ($user) {
             Auth::guard('user')->login($user);
+            $this->setOtpTrustedDevice($user);
 
             return response()->json([
                 'status' => 'success',
@@ -186,6 +249,12 @@ class UserLoginController extends Controller
         $user = Register::where('mobile', $request->mobile)->first();
         if($user != "")
         {
+            $trustedUser = $this->getTrustedUser($request->mobile);
+            if ($trustedUser) {
+                Auth::guard('user')->login($trustedUser);
+                $this->setOtpTrustedDevice($trustedUser);
+                return redirect()->route('user.dashboard')->with('message', 'Login successfully');
+            }
 
             $otp = rand(1234, 9999);
             session::put('user_id',$user->mobile);
@@ -270,6 +339,7 @@ class UserLoginController extends Controller
                 if($user)
                 {
                     Auth::guard('user')->login($user_id);
+                    $this->setOtpTrustedDevice($user_id);
                     Session::forget('otp');
                     Session::forget('user_id');
                     return redirect()->route('user.dashboard')->with('message','Login successfully');

@@ -141,28 +141,74 @@
         const fullNumber = "+91" + phoneNumberPart;
 
         document.getElementById('sendOtpBtn').disabled = true;
-        statusEl.textContent = "Sending OTP...";
+        statusEl.textContent = "Checking device...";
         statusEl.className = "";
 
-        signInWithPhoneNumber(auth, fullNumber, window.recaptchaVerifier)
-            .then((result) => {
-                confirmationResult = result;
-                statusEl.textContent = "OTP sent successfully!";
+        fetch("{{ route('user.otpTrustedCheck') }}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+                "Accept": "application/json",
+            },
+            body: JSON.stringify({ phone: phoneNumberPart }),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.trusted && data.redirect) {
+                statusEl.textContent = "Trusted device — logging you in...";
                 statusEl.className = "success";
+                window.location.href = data.redirect;
+                return;
+            }
 
-                // Enable OTP field & focus on it
-                const otpInput = document.getElementById('otp');
-                otpInput.disabled = false;
-                otpInput.focus();
+            statusEl.textContent = "Sending OTP...";
+            statusEl.className = "";
 
-                document.getElementById('verifyOtpBtn').disabled = false;
-            })
-            .catch((error) => {
-                console.error("Error sending OTP:", error);
-                statusEl.textContent = "Failed to send OTP: " + error.message;
-                statusEl.className = "error";
-                document.getElementById('sendOtpBtn').disabled = false;
-            });
+            signInWithPhoneNumber(auth, fullNumber, window.recaptchaVerifier)
+                .then((result) => {
+                    confirmationResult = result;
+                    statusEl.textContent = "OTP sent successfully!";
+                    statusEl.className = "success";
+
+                    // Enable OTP field & focus on it
+                    const otpInput = document.getElementById('otp');
+                    otpInput.disabled = false;
+                    otpInput.focus();
+
+                    document.getElementById('verifyOtpBtn').disabled = false;
+                })
+                .catch((error) => {
+                    console.error("Error sending OTP:", error);
+                    statusEl.textContent = "Failed to send OTP: " + error.message;
+                    statusEl.className = "error";
+                    document.getElementById('sendOtpBtn').disabled = false;
+                });
+        })
+        .catch((error) => {
+            console.error("Trusted device check error:", error);
+            statusEl.textContent = "Sending OTP...";
+            statusEl.className = "";
+
+            signInWithPhoneNumber(auth, fullNumber, window.recaptchaVerifier)
+                .then((result) => {
+                    confirmationResult = result;
+                    statusEl.textContent = "OTP sent successfully!";
+                    statusEl.className = "success";
+
+                    const otpInput = document.getElementById('otp');
+                    otpInput.disabled = false;
+                    otpInput.focus();
+
+                    document.getElementById('verifyOtpBtn').disabled = false;
+                })
+                .catch((otpError) => {
+                    console.error("Error sending OTP:", otpError);
+                    statusEl.textContent = "Failed to send OTP: " + otpError.message;
+                    statusEl.className = "error";
+                    document.getElementById('sendOtpBtn').disabled = false;
+                });
+        });
     });
 
     document.getElementById('verifyOtpBtn').addEventListener('click', () => {

@@ -2,80 +2,99 @@
     $user = Auth::guard('user')->user();
     $site_configs = DB::table('site_configs')->first();
     $status = DB::table('expressinterests')->where('ei_sender',$user->matri_id)->where('ei_receiver',$data->matri_id)->first();
+
+    $age = null;
+    if ($data->birthdate) {
+        $age = Carbon\Carbon::parse($data->birthdate)->diff(Carbon\Carbon::now())->y;
+    }
+
+    $displayName = $data->matri_id;
+    if ($siteconfig->username_setting == "full_username") {
+        $displayName = trim(($data->firstname ?? '') . ' ' . ($data->lastname ?? ''));
+        if ($displayName === '') {
+            $displayName = $data->matri_id;
+        }
+    } elseif ($siteconfig->username_setting == "first_surname") {
+        $lastInitial = isset($data->lastname) && $data->lastname !== '' ? substr($data->lastname, 0, 1) : '';
+        $displayName = trim(($data->firstname ?? '') . ' ' . $lastInitial);
+        if ($displayName === '') {
+            $displayName = $data->matri_id;
+        }
+    }
+
+    $metaChips = [];
+    if ($age !== null) {
+        $metaChips[] = $age . ' Yrs';
+    }
+    if (isset($data->height) && !empty($data->hei->height ?? null)) {
+        $metaChips[] = $data->hei->height;
+    }
+    if (isset($data->m_tongue) && !empty($data->mother_tongue->mtongue_name ?? null)) {
+        $metaChips[] = $data->mother_tongue->mtongue_name;
+    }
+    if (isset($data->religion) && !empty($data->rel->religion_name ?? null)) {
+        $metaChips[] = $data->rel->religion_name;
+    }
+    if (isset($data->caste) && !empty($data->cast->caste_name ?? null)) {
+        $metaChips[] = $data->cast->caste_name;
+    }
+    if (isset($data->occupation) && !empty($data->occ->ocp_name ?? null)) {
+        $metaChips[] = $data->occ->ocp_name;
+    }
+    if (!empty($data->h_edu->edu_name ?? null)) {
+        $metaChips[] = $data->h_edu->edu_name;
+    }
+    if (!empty($data->citi->city_name ?? null)) {
+        $metaChips[] = $data->citi->city_name;
+    }
+    if (!empty($data->country->country_name ?? null)) {
+        $metaChips[] = $data->country->country_name;
+    }
 @endphp
 <input type="hidden" value="{{$data->matri_id}}" id="id">
 <div class="card mb-3 inMainResultCard inBorderColor1">
-    <div class="row g-0">
-        <div class="col-lg-4">
-            <a href="{{ route('user.memberProfile',$data->matri_id) }}" title="{{$data->matri_id}}" class="text-decoration-none">
+    <div class="row g-0 inMainResultRow">
+        <div class="col-md-3 col-lg-3 inMainResultPhoto">
+            <a href="{{ route('user.memberProfile',$data->matri_id) }}" title="{{$data->matri_id}}" class="text-decoration-none inMainResultPhotoLink">
                 @if(isset($data))
                     @php $filePath = '/userImages/'.$data->photo1;  @endphp
-                    @if($data->photo1 != "" && $data->photo1_approve == "APPROVED" && (($data->photo_setting == '0') || ($data->photo_setting == '1' && Auth::guard('user')->user()->status == 'Paid') || ($data->photo_setting == '2' && $status->receiver_response == "Accept" )) && Storage::disk('public')->exists($filePath))
-                    <img src="{{asset('storage/userImages/'. $data->photo1)}}" class="img-fluid rounded w-100" style="width:200px; height:250px; object-fit:contain; background-color:#f8f9fa;">
+                    @if($data->photo1 != "" && $data->photo1_approve == "APPROVED" && (($data->photo_setting == '0') || ($data->photo_setting == '1' && Auth::guard('user')->user()->status == 'Paid') || ($data->photo_setting == '2' && $status && $status->receiver_response == "Accept" )) && Storage::disk('public')->exists($filePath))
+                    <img src="{{asset('storage/userImages/'. $data->photo1)}}" class="inMainResultImg" alt="{{ $displayName }}">
                     @elseif($data->photo1 != ""  && $data->gender == "Female" && $data->photo1_approve == "PENDING" && Storage::disk('public')->exists($filePath))
-                            <img src="{{asset('user/img/femalepending.jpg')}}" class="img-fluid rounded w-100" style="width:200px; height:250px; object-fit:contain; background-color:#f8f9fa;">
+                            <img src="{{asset('user/img/femalepending.jpg')}}" class="inMainResultImg" alt="Pending photo">
                     @elseif($data->photo1 != ""  && $data->gender == "Male" && $data->photo1_approve == "PENDING" && Storage::disk('public')->exists($filePath))
-                            <img src="{{asset('user/img/malepending.jpg')}}" class="img-fluid rounded w-100" style="width:200px; height:250px; object-fit:contain; background-color:#f8f9fa;">
+                            <img src="{{asset('user/img/malepending.jpg')}}" class="inMainResultImg" alt="Pending photo">
                     @else
                         @if($data->gender == "Male")
-                            <img src="{{asset('user/img/male.jpg')}}" class="img-fluid rounded w-100">
+                            <img src="{{asset('user/img/male.jpg')}}" class="inMainResultImg" alt="Profile">
                         @else
-                            <img src="{{asset('user/img/female.jpg')}}" class="img-fluid rounded w-100">
+                            <img src="{{asset('user/img/female.jpg')}}" class="inMainResultImg" alt="Profile">
                         @endif
                     @endif
                 @endif
             </a>
         </div>
-        <div class="col-lg-8">
-            <div class="card-body">
-               <a href="{{ route('user.memberProfile',$data->matri_id) }}" title="{{$data->matri_id}}" class="text-decoration-none">
-                    @if($siteconfig->username_setting == "full_username")
-                        <h5 class="card-title">@if(isset($data->firstname)){{$data->firstname}}@endif @if(isset($data->lastname)){{$data->lastname}}({{$data->matri_id}})@else {{$data->matri_id}}@endif</h5>
-                    @elseif($siteconfig->username_setting == "first_surname")
-                        <h5 class="card-title">@if(isset($data->firstname)){{$data->firstname}}@endif @if(isset($data->lastname)){{substr($data->lastname, 0, 1)}}({{$data->matri_id}})@else {{$data->matri_id}}@endif</h5>
-                    @else
-                        <h5 class="card-title">@if(isset($data->matri_id)){{$data->matri_id}}@endif</h5>
+        <div class="col-md-9 col-lg-9">
+            <div class="card-body inMainResultBody">
+               <a href="{{ route('user.memberProfile',$data->matri_id) }}" title="{{$data->matri_id}}" class="text-decoration-none inMainResultInfo">
+                    <div class="inMainResultHeader">
+                        <h5 class="card-title">{{ $displayName }}</h5>
+                        <p class="inMainResultMeta">
+                            <span class="inMainResultId">{{ $data->matri_id }}</span>
+                            <span class="inMainResultDot" aria-hidden="true">·</span>
+                            <span>Profile Created by {{ $data->profileby ?? 'Not Available' }}</span>
+                        </p>
+                    </div>
+
+                    @if(count($metaChips))
+                    <ul class="inMainResultChips">
+                        @foreach($metaChips as $chip)
+                        <li>{{ $chip }}</li>
+                        @endforeach
+                    </ul>
                     @endif
-                   
-                    <h6 class="mb-3">@if(isset($data->matri_id)){{$data->matri_id}}@endif &nbsp;&nbsp;|&nbsp;&nbsp; Profile Created by @if(isset($data->profileby)){{$data->profileby}}@else Not Available @endif</h6>
-                    <?php   
-                    if($data->birthdate)
-                    {
-                        $from = Carbon\Carbon::parse($data->birthdate);
-                        $to = Carbon\Carbon::now();
-                        $age =$from->diff($to)->y;
-                    }
-                    ?>
-                    <p class="card-text">@if(isset($data->birthdate)){{$age}} Yrs @else Not Available @endif, @if(isset($data->height)){{$data->hei->height}}@else Not Available @endif, @if(isset($data->m_tongue)){{$data->mother_tongue->mtongue_name}}@else Not Available @endif, </p>
-                    <p class="card-text">@if(isset($data->religion)){{$data->rel->religion_name}}@else Not Available @endif, @if(isset($data->caste)){{$data->cast->caste_name}}@else Not Available @endif,</p>
-                    <p class="card-text">
-                        @if(isset($data->occupation) && !empty($data->occ->ocp_name))
-                            {{ $data->occ->ocp_name }}
-                        @else
-                            Not Available
-                        @endif,
-
-                        @if(isset($data->h_edu->edu_name))
-                            {{ $data->h_edu->edu_name }}
-                        @else
-                            Not Available
-                        @endif,
-
-                        @if(!empty($data->citi) && !empty($data->citi->city_name))
-                            {{ $data->citi->city_name }}
-                        @else
-                            Not Available
-                        @endif,
-
-                        @if(!empty($data->country) && !empty($data->country->country_name))
-                            {{ $data->country->country_name }}
-                        @else
-                            Not Available
-                        @endif
-                    </p>
-
                 </a>
-                <div class="row mt-4 inMainResultAction mt-lg-2 mt-xl-4">
+                <div class="row g-0 inMainResultAction">
                     
                     <div class="col text-center">
                         <form action="{{route('user.chatthreadpost',$data->id)}}">
@@ -231,5 +250,3 @@
         </div>
     </div>
 </div>
-
-

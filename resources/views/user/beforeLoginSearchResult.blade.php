@@ -361,6 +361,58 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card mb-3 inRefinePanel">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="mb-0">STAR</h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="" class="text-decoration-none text-white" onclick="myFunctionstar()">
+                                            <i class="fas fa-times-circle pe-1"></i>Clear
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <?php $part_star = isset($formDataArray['part_star']) ? $formDataArray['part_star'] : null; ?>
+                                    <div class="col-12">
+                                        <select name="part_star[]" class="form-select chosen-select" id="part_star" data-placeholder="Choose" multiple>
+                                            @foreach($stars as $star)
+                                            <option value="{{$star->id}}" @if(isset($part_star)) @if(in_array($star->id,$part_star)) {{"selected"}}@endif @endif>{{$star->star}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3 inRefinePanel">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="mb-0">RASI / MOONSIGN</h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="" class="text-decoration-none text-white" onclick="myFunctionrasi()">
+                                            <i class="fas fa-times-circle pe-1"></i>Clear
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <?php $part_rasi = isset($formDataArray['part_rasi']) ? $formDataArray['part_rasi'] : null; ?>
+                                    <div class="col-12">
+                                        <select name="part_rasi[]" class="form-select chosen-select" id="part_rasi" data-placeholder="Choose" multiple>
+                                            @foreach($rashies as $rasi)
+                                            <option value="{{$rasi->id}}" @if(isset($part_rasi)) @if(in_array($rasi->id,$part_rasi)) {{"selected"}}@endif @endif>{{$rasi->rasi}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 
                 {{-- <button class="btn d-block d-lg-none btnPrimary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
@@ -451,6 +503,18 @@
         var pageUrl = $('#pagination-links a').attr('href');
         loadPage(pageUrl);
        
+    }
+    function myFunctionstar() {
+       $('select[name="part_star"]').find(":selected").attr('selected', false);
+        $('#part_star').val('').trigger('chosen:updated');
+        var pageUrl = $('#pagination-links a').attr('href');
+        loadPage(pageUrl);
+    }
+    function myFunctionrasi() {
+       $('select[name="part_rasi"]').find(":selected").attr('selected', false);
+        $('#part_rasi').val('').trigger('chosen:updated');
+        var pageUrl = $('#pagination-links a').attr('href');
+        loadPage(pageUrl);
     }
     </script>
 <script type="text/javascript">

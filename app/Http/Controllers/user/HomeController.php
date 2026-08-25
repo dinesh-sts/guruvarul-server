@@ -20,6 +20,8 @@ use App\Models\CountryCode;
 use App\Models\FieldSetting;
 use App\Models\MembershipPlan;
 use App\Models\ProfileBy;
+use App\Models\Rasi;
+use App\Models\Star;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
@@ -67,9 +69,11 @@ class HomeController extends Controller{
             $incomes = Income::where('status',"APPROVED")->get();
             $heights = Height::all();
             $ages = Age::all();
+            $stars = Star::where('status',"APPROVED")->get();
+            $rashies = Rasi::where('status',"APPROVED")->get();
             $fieldSetting = FieldSetting::first();
 
-            return view('user.search',compact('fieldSetting','religions','ages','countries','eduDetails','occupations','incomes','heights'));
+            return view('user.search',compact('fieldSetting','religions','ages','countries','eduDetails','occupations','incomes','heights','stars','rashies'));
         
     }
     public function searchfetchcaste(Request $request)
