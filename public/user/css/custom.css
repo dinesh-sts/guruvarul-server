@@ -1009,18 +1009,40 @@ body {
     border: 1px solid #ebebeb;
     background: #ffffff;
     box-shadow: none;
-    transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    position: relative;
 }
 .inMainResultCard:hover{
     border-color: #f0cfe0;
     box-shadow: 0 8px 24px rgba(56, 56, 56, 0.08);
 }
 .inMainResultRow{
+    display: flex !important;
+    flex-wrap: nowrap;
     align-items: stretch;
     min-height: 180px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100%;
 }
 .inMainResultPhoto{
+    flex: 0 0 200px;
+    width: 200px;
+    max-width: 200px;
     background: #f7f7f9;
+    position: relative;
+    z-index: 1;
+    float: none !important;
+}
+.inMainResultContent{
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto !important;
+    max-width: none !important;
+    background: #ffffff;
+    position: relative;
+    z-index: 2;
+    float: none !important;
 }
 .inMainResultPhotoLink{
     display: block;
@@ -1031,7 +1053,7 @@ body {
     width: 100%;
     height: 100%;
     min-height: 180px;
-    max-height: 220px;
+    max-height: 240px;
     object-fit: cover;
     object-position: center top;
     display: block;
@@ -1049,6 +1071,7 @@ body {
     flex-direction: column;
     height: 100%;
     padding: 1.1rem 1.25rem 0.85rem;
+    background: #ffffff;
 }
 .inMainResultInfo{
     display: block;
@@ -1082,14 +1105,15 @@ body {
     color: #bdbdbd;
 }
 .inMainResultChips{
-    list-style: none;
+    list-style: none !important;
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    padding: 0;
-    margin: 0 0 0.85rem;
+    padding: 0 !important;
+    margin: 0 0 0.85rem !important;
 }
 .inMainResultChips li{
+    list-style: none !important;
     font-size: 12px;
     font-weight: 600;
     color: #4a4a4a;
@@ -1098,6 +1122,47 @@ body {
     border-radius: 999px;
     padding: 0.28rem 0.7rem;
     line-height: 1.3;
+}
+.inMainResultChips li::before,
+.inMainResultChips li::marker{
+    content: none !important;
+    display: none !important;
+}
+.inMainResultDetails{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1rem;
+    row-gap: 0.4rem;
+    margin: 0 0 0.9rem;
+    padding: 0;
+}
+.inMainResultDetail{
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: baseline;
+    column-gap: 0.35rem;
+    min-width: 0;
+    margin: 0;
+}
+.inMainResultDetail dt{
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: #8a8a8a;
+    white-space: nowrap;
+}
+.inMainResultDetail dt::after{
+    content: ":";
+}
+.inMainResultDetail dd{
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #3a3a3a;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .inMainResultCard .card-text{
     font-size: 14px;
@@ -1115,6 +1180,42 @@ body {
     padding-top: 0.55rem;
     border-top: 1px solid #f1f1f1;
     justify-content: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    background: #ffffff;
+}
+@media (max-width: 767.98px) {
+    .inMainResultRow{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .inMainResultPhoto{
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    .inMainResultContent{
+        width: 100% !important;
+    }
+    .inMainResultPhoto,
+    .inMainResultPhotoLink,
+    .inMainResultImg{
+        min-height: 210px;
+        max-height: 250px;
+        border-radius: 12px 12px 0 0;
+    }
+    .inMainResultBody{
+        padding: 1rem 1rem 0.75rem;
+    }
+    .inMainResultDetails{
+        grid-template-columns: 1fr;
+        row-gap: 0.35rem;
+        margin-bottom: 0.75rem;
+    }
+    .inMainResultDetail dt,
+    .inMainResultDetail dd{
+        font-size: 13px;
+    }
 }
 .inMsgViewThumb h5{
     color:var(--color-secondary);
@@ -2080,8 +2181,19 @@ a.inFeturedCard .card{
         max-height: 100%;
         width: 100%;
     }
+    .inMainResultRow{
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+    }
     .inMainResultPhoto{
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
         border-radius: 12px 12px 0 0;
+    }
+    .inMainResultContent{
+        width: 100% !important;
+        max-width: 100% !important;
     }
     .inMainResultPhotoLink,
     .inMainResultImg{
@@ -2093,6 +2205,11 @@ a.inFeturedCard .card{
         padding: 1rem 1rem 0.75rem;
     }
     .inMainResultChips{
+        margin-bottom: 0.65rem;
+    }
+    .inMainResultDetails{
+        grid-template-columns: 1fr;
+        row-gap: 0.35rem;
         margin-bottom: 0.65rem;
     }
     .inPhotoReqCard .maxH-180{
@@ -2192,6 +2309,115 @@ a.inFeturedCard .card{
     .inMemberProfile .inMT-75{
         margin-top: 50px;
     }
+}
+
+/* Chosen multi-select inside mobile refine offcanvas */
+#offcanvasExample .chosen-container { width: 100% !important; }
+#offcanvasExample .chosen-container .chosen-drop { z-index: 1100; }
+
+/* Elegant homepage */
+.inHomeHero{
+  position: relative;
+  min-height: min(78vh, 640px);
+  overflow: hidden;
+  background: #1a1014;
+}
+.inHomeHeroMedia,
+.inHomeHeroMedia .owl-carousel,
+.inHomeHeroMedia .item,
+.inHomeHeroMedia img{
+  height: min(78vh, 640px);
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  margin: 0;
+}
+.inHomeHeroContent{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  padding: 3.5rem 0 3rem;
+  background: linear-gradient(180deg, rgba(20,10,16,0.15) 0%, rgba(20,10,16,0.55) 55%, rgba(20,10,16,0.78) 100%);
+  pointer-events: none;
+}
+.inHomeHeroContent .container{ pointer-events: auto; }
+.inHomeBrand{
+  font-family: 'Yesteryear', cursive;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  color: #fff;
+  margin: 0 0 0.35rem;
+  line-height: 1.1;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.25);
+}
+.inHomeHeroContent h1{
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  color: #fff;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+.inHomeLead{
+  color: rgba(255,255,255,0.88);
+  max-width: 34rem;
+  margin: 0 0 1.25rem;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+.inHomeCtas{ display:flex; flex-wrap:wrap; gap:0.75rem; }
+.inHomeCtaPrimary{
+  background: var(--color-primary);
+  color:#fff !important;
+  border:none;
+  border-radius: 8px;
+  padding: 0.7rem 1.4rem;
+  font-weight: 700;
+  text-decoration:none;
+}
+.inHomeCtaPrimary:hover{ background: var(--color-primary-hover); color:#fff; }
+.inHomeCtaGhost{
+  background: transparent;
+  color:#fff !important;
+  border: 1.5px solid rgba(255,255,255,0.85);
+  border-radius: 8px;
+  padding: 0.7rem 1.4rem;
+  font-weight: 700;
+  text-decoration:none;
+}
+.inHomeCtaGhost:hover{ background: rgba(255,255,255,0.12); color:#fff; }
+
+.inHomeRegister{
+  padding: 3rem 0 2.5rem;
+  background: linear-gradient(180deg, #fff5fa 0%, #ffffff 55%);
+}
+.inHomeRegisterCard{
+  border: 1px solid #f0e4ea;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(255,0,129,0.06);
+  overflow: hidden;
+}
+.inHomeRegister .inLoginTitle{ margin-bottom: 0.5rem; }
+
+.inHomeSearch, .inDashSearch.inHomeSearch{
+  padding: 1.75rem 0 1.25rem;
+  background: #fff;
+  border-bottom: 1px solid #f3f3f3;
+}
+.inHomeSection{ padding-top: 3rem; padding-bottom: 3rem; }
+.inSteps.inHomeSection .inHearts{ display:none; }
+.inSteps.inHomeSection h3{ font-size: clamp(1.4rem, 2.5vw, 1.85rem); margin-top:0; }
+.inSuccessStory.inHomeSection{ background: #faf7f9; }
+
+@media (max-width: 767.98px){
+  .inHomeHero, .inHomeHeroMedia, .inHomeHeroMedia .owl-carousel,
+  .inHomeHeroMedia .item, .inHomeHeroMedia img{
+    min-height: 420px;
+    height: 420px;
+  }
+  .inHomeHeroContent{ padding: 2rem 0 1.75rem; align-items: flex-end; }
 }
 
 

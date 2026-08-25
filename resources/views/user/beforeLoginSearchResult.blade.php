@@ -71,28 +71,163 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-8">
-                                        <h5 class="mb-0">PROFILE TYPE</h5>
+                                        <h5 class="mb-0">RASI / MOONSIGN</h5>
                                     </div>
-                                    {{-- <div class="col-4">
-                                        <a href="" class="text-decoration-none text-white">
+                                    <div class="col-4">
+                                        <a href="javascript:void(0);" class="text-decoration-none text-white" onclick="myFunctionrasi()">
                                             <i class="fas fa-times-circle pe-1"></i>Clear
                                         </a>
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="card-body">
-                                    <div class="col-12 mb-2">
-                                        <label for="withphoto">
-                                            <input type="radio" id="withphoto" @if($photo == "with_photo")checked @endif name="photo" value="with_photo">
-                                            <span class="ps-2 align-text-bottom">With Photo</span>
-                                        </label>
-                                    </div>
+                                <div class="row">
+                                    <?php $part_rasi = isset($formDataArray['part_rasi']) ? $formDataArray['part_rasi'] : null; ?>
                                     <div class="col-12">
-                                        <label for="withoutphoto">
-                                            <input type="radio" id="withoutphoto" @if($photo != "with_photo")checked @endif name="photo">
-                                            <span class="ps-2 align-text-bottom">Does Not Matter</span>
-                                        </label>
+                                        <select name="part_rasi[]" class="form-select chosen-select" id="part_rasi" data-placeholder="Choose" multiple>
+                                            @foreach($rashies as $rasi)
+                                            <option value="{{$rasi->id}}" @if(isset($part_rasi)) @if(in_array($rasi->id,$part_rasi)) {{"selected"}}@endif @endif>{{$rasi->rasi}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3 inRefinePanel">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="mb-0">STAR</h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="javascript:void(0);" class="text-decoration-none text-white" onclick="myFunctionstar()">
+                                            <i class="fas fa-times-circle pe-1"></i>Clear
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <?php $part_star = isset($formDataArray['part_star']) ? $formDataArray['part_star'] : null; ?>
+                                    <div class="col-12">
+                                        <select name="part_star[]" class="form-select chosen-select" id="part_star" data-placeholder="Choose" multiple>
+                                            @foreach($stars as $star)
+                                            <option value="{{$star->id}}" @if(isset($part_star)) @if(in_array($star->id,$part_star)) {{"selected"}}@endif @endif>{{$star->star}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3 inRefinePanel">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="mb-0">RELIGION</h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="javascript:void(0);" class="text-decoration-none text-white" onclick="myFunctionreligion()">
+                                            <i class="fas fa-times-circle pe-1"></i>Clear
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                
+                                    <?php $part_religion = isset($formDataArray['part_religion']) ? $formDataArray['part_religion'] : null; ?>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <select name="part_religion[]" class="form-select chosen-select" id="part_religion" data-placeholder="Choose" multiple> 
+                                                    @foreach($religions as $religion)
+                                                    <option value="{{$religion->id}}" @if(isset($part_religion)) @if(in_array($religion->id,$part_religion)) {{"selected"}}@endif @endif>{{$religion->religion_name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3 inRefinePanel">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="mb-0">CASTE</h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="javascript:void(0);" class="text-decoration-none text-white" onclick="myFunctioncaste()">
+                                            <i class="fas fa-times-circle pe-1"></i>Clear
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="card-body">
+                                <?php $part_caste = isset($formDataArray['part_caste']) ? $formDataArray['part_caste'] : null; ?>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <select name="part_caste[]" class="form-select chosen-select" id="part_caste" data-placeholder="Choose" multiple>
+                                            
+                                            @foreach($casties as $caste)
+                                            <option value="{{$caste->id}}" @if(isset($part_caste)) @if(in_array($caste->id,$part_caste)) {{"selected"}}@endif @endif>{{$caste->caste_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3 inRefinePanel">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="mb-0">OCCUPATION</h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="javascript:void(0);" class="text-decoration-none text-white" onclick="myFunctionoccu()">
+                                            <i class="fas fa-times-circle pe-1"></i>Clear
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <?php $part_occu = isset($formDataArray['part_occu']) ? $formDataArray['part_occu'] : null; ?>
+                                        <select name="part_occu[]" class="form-select chosen-select" id="part_occu" data-placeholder="Choose" multiple>
+                                            
+                                            @foreach($occupations as $occupation)
+                                            <option value="{{$occupation->id}}" @if(isset($part_occu)) @if(in_array($occupation->id,$part_occu)) {{"selected"}}@endif @endif>{{$occupation->ocp_name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-3 inRefinePanel">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="mb-0">EDUCATION</h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="javascript:void(0);" class="text-decoration-none text-white" onclick="myFunctionedudetails()">
+                                            <i class="fas fa-times-circle pe-1"></i>Clear
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <?php $part_edu = isset($formDataArray['part_edu']) ? $formDataArray['part_edu'] : null; ?>
+                                    <div class="col-12">
+                                        <select name="part_edu[]" class="form-select chosen-select" id="part_edu" data-placeholder="Choose" multiple>
+                                            
+                                            @foreach($edu_details as $edu_detail)
+                                            <option value="{{$edu_detail->id}}" @if(isset($part_edu)) @if(in_array($edu_detail->id,$part_edu)) {{"selected"}}@endif @endif>{{$edu_detail->edu_name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -195,65 +330,6 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-8">
-                                        <h5 class="mb-0">RELIGION</h5>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="" class="text-decoration-none text-white" onclick="myFunctionreligion()">
-                                            <i class="fas fa-times-circle pe-1"></i>Clear
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                
-                                    <?php $part_religion = isset($formDataArray['part_religion']) ? $formDataArray['part_religion'] : null; ?>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <select name="part_religion[]" class="form-select chosen-select" id="part_religion" data-placeholder="Choose" multiple> 
-                                                    @foreach($religions as $religion)
-                                                    <option value="{{$religion->id}}" @if(isset($part_religion)) @if(in_array($religion->id,$part_religion)) {{"selected"}}@endif @endif>{{$religion->religion_name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 inRefinePanel">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h5 class="mb-0">CASTE</h5>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="" class="text-decoration-none text-white" onclick="myFunctioncaste()">
-                                            <i class="fas fa-times-circle pe-1"></i>Clear
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <div class="card-body">
-                                <?php $part_caste = isset($formDataArray['part_caste']) ? $formDataArray['part_caste'] : null; ?>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <select name="part_caste[]" class="form-select chosen-select" id="part_caste" data-placeholder="Choose" multiple>
-                                            
-                                            @foreach($casties as $caste)
-                                            <option value="{{$caste->id}}" @if(isset($part_caste)) @if(in_array($caste->id,$part_caste)) {{"selected"}}@endif @endif>{{$caste->caste_name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 inRefinePanel">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col-8">
                                         <h5 class="mb-0">MARITAL STATUS</h5>
                                     </div>
                                     <div class="col-4">
@@ -284,37 +360,10 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-8">
-                                        <h5 class="mb-0">OCCUPATION</h5>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="" class="text-decoration-none text-white" onclick="myFunctionoccu()">
-                                            <i class="fas fa-times-circle pe-1"></i>Clear
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <?php $part_occu = isset($formDataArray['part_occu']) ? $formDataArray['part_occu'] : null; ?>
-                                        <select name="part_occu[]" class="form-select chosen-select" id="part_occu" data-placeholder="Choose" multiple>
-                                            
-                                            @foreach($occupations as $occupation)
-                                            <option value="{{$occupation->id}}" @if(isset($part_occu)) @if(in_array($occupation->id,$part_occu)) {{"selected"}}@endif @endif>{{$occupation->ocp_name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 inRefinePanel">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col-8">
                                         <h5 class="mb-0">COUNTRY</h5>
                                     </div>
                                     <div class="col-4">
-                                        <a href="" class="text-decoration-none text-white" onclick="myFunctioncountry()">
+                                        <a href="javascript:void(0);" class="text-decoration-none text-white" onclick="myFunctioncountry()">
                                             <i class="fas fa-times-circle pe-1"></i>Clear
                                         </a>
                                     </div>
@@ -328,85 +377,6 @@
                                            
                                             @foreach($countries as $country)
                                             <option value="{{$country->id}}" @if(isset($part_country_living)) @if(in_array($country->id,$part_country_living)) {{"selected"}}@endif @endif>{{$country->country_name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 inRefinePanel">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h5 class="mb-0">EDUCATION</h5>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="" class="text-decoration-none text-white" onclick="myFunctionedudetails()">
-                                            <i class="fas fa-times-circle pe-1"></i>Clear
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <?php $part_edu = isset($formDataArray['part_edu']) ? $formDataArray['part_edu'] : null; ?>
-                                    <div class="col-12">
-                                        <select name="part_edu[]" class="form-select chosen-select" id="part_edu" data-placeholder="Choose" multiple>
-                                            
-                                            @foreach($edu_details as $edu_detail)
-                                            <option value="{{$edu_detail->id}}" @if(isset($part_edu)) @if(in_array($edu_detail->id,$part_edu)) {{"selected"}}@endif @endif>{{$edu_detail->edu_name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 inRefinePanel">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h5 class="mb-0">STAR</h5>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="" class="text-decoration-none text-white" onclick="myFunctionstar()">
-                                            <i class="fas fa-times-circle pe-1"></i>Clear
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <?php $part_star = isset($formDataArray['part_star']) ? $formDataArray['part_star'] : null; ?>
-                                    <div class="col-12">
-                                        <select name="part_star[]" class="form-select chosen-select" id="part_star" data-placeholder="Choose" multiple>
-                                            @foreach($stars as $star)
-                                            <option value="{{$star->id}}" @if(isset($part_star)) @if(in_array($star->id,$part_star)) {{"selected"}}@endif @endif>{{$star->star}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card mb-3 inRefinePanel">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h5 class="mb-0">RASI / MOONSIGN</h5>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="" class="text-decoration-none text-white" onclick="myFunctionrasi()">
-                                            <i class="fas fa-times-circle pe-1"></i>Clear
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <?php $part_rasi = isset($formDataArray['part_rasi']) ? $formDataArray['part_rasi'] : null; ?>
-                                    <div class="col-12">
-                                        <select name="part_rasi[]" class="form-select chosen-select" id="part_rasi" data-placeholder="Choose" multiple>
-                                            @foreach($rashies as $rasi)
-                                            <option value="{{$rasi->id}}" @if(isset($part_rasi)) @if(in_array($rasi->id,$part_rasi)) {{"selected"}}@endif @endif>{{$rasi->rasi}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -463,62 +433,66 @@
 <!-- /. Chosen js -->
 <script>
   
+    var resultsUrl = '{{ route('user.searchResultView') }}';
+    var searchDebounceTimer = null;
+
+    function isChosenDropdownOpen($el) {
+        var $chosen = $el.next('.chosen-container');
+        return $chosen.length && $chosen.hasClass('chosen-with-drop');
+    }
+
+    function queueFormRefresh() {
+        clearTimeout(searchDebounceTimer);
+        searchDebounceTimer = setTimeout(function() {
+            loadPage(resultsUrl);
+        }, 400);
+    }
+
     function myFunctionreligion() {
         $('select[name="part_religion"]').find(":selected").attr('selected', false);
         $('#part_religion').val('').trigger('chosen:updated');
-        var pageUrl = $('#pagination-links a').attr('href');
-        loadPage();
+        loadPage(resultsUrl);
     }
     function myFunctioncaste() {
         $('select[name="part_caste"]').find(":selected").attr('selected', false);
         $('#part_caste').val('').trigger('chosen:updated');
-        var pageUrl = $('#pagination-links a').attr('href');
-        loadPage();
-        
+        loadPage(resultsUrl);
     }
     function myFunctionmstatus() {
        $('select[name="m_status"]').find(":selected").attr('selected', false);
         $('#m_status').val('').trigger('chosen:updated');
-        var pageUrl = $('#pagination-links a').attr('href');
-        loadPage(pageUrl);
-       
+        loadPage(resultsUrl);
     }
     function myFunctionoccu() {
        $('select[name="part_occu"]').find(":selected").attr('selected', false);
         $('#part_occu').val('').trigger('chosen:updated');
-        var pageUrl = $('#pagination-links a').attr('href');
-        loadPage(pageUrl);
+        loadPage(resultsUrl);
     }
 
     function myFunctioncountry() {
        $('select[name="part_country_living"]').find(":selected").attr('selected', false);
         $('#part_country').val('').trigger('chosen:updated');
-        var pageUrl = $('#pagination-links a').attr('href');
-        loadPage(pageUrl);
-       
+        loadPage(resultsUrl);
     }
     function myFunctionedudetails() {
        $('select[name="part_edu"]').find(":selected").attr('selected', false);
         $('#part_edu').val('').trigger('chosen:updated');
-        var pageUrl = $('#pagination-links a').attr('href');
-        loadPage(pageUrl);
-       
+        loadPage(resultsUrl);
     }
     function myFunctionstar() {
-       $('select[name="part_star"]').find(":selected").attr('selected', false);
+       $('select[name="part_star[]"], select[name="part_star"]').find(":selected").attr('selected', false);
         $('#part_star').val('').trigger('chosen:updated');
-        var pageUrl = $('#pagination-links a').attr('href');
-        loadPage(pageUrl);
+        loadPage(resultsUrl);
     }
     function myFunctionrasi() {
-       $('select[name="part_rasi"]').find(":selected").attr('selected', false);
+       $('select[name="part_rasi[]"], select[name="part_rasi"]').find(":selected").attr('selected', false);
         $('#part_rasi').val('').trigger('chosen:updated');
-        var pageUrl = $('#pagination-links a').attr('href');
-        loadPage(pageUrl);
+        loadPage(resultsUrl);
     }
     </script>
 <script type="text/javascript">
     function loadPage(pageUrl) {
+        pageUrl = pageUrl || '{{ route('user.searchResultView') }}';
         var searchData = $('#searchForm').serialize(); 
         $.ajax({
             url: '{{ route('user.searchData') }}',
@@ -547,9 +521,15 @@
 
     }
 
-    $('#searchForm').change(function() {
-        var pageUrl = $('#pagination-links a').attr('href');
-        loadPage();
+    $('#searchForm').on('change', function(e) {
+        var $target = $(e.target);
+        if ($target.is('select[multiple]') && isChosenDropdownOpen($target)) {
+            return;
+        }
+        queueFormRefresh();
+    });
+    $('#searchForm').on('chosen:hiding_dropdown', 'select', function() {
+        queueFormRefresh();
     });
 
     $(document).on('click', '#pagination-links a', function(event) {
