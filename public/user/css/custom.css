@@ -1,0 +1,2068 @@
+html{
+    scroll-behavior: smooth;
+}
+
+:root{
+    --color-primary: #ff0081;
+    --color-primary-hover :#e20575;
+    --color-secondary: #233350;
+    --color-secondary-hover: #2f446a;
+}
+
+.inRegisterSubTitle{
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 10px;
+}
+.inEditCard .card-body h4{
+    color: var(--color-primary);
+    font-size: 18px;
+    margin-bottom: 1.5rem !important;
+    margin-top: 1rem !important;
+}
+.inAdvertisementBucket span{
+    background: #0000001a;
+    display: inline-block;
+    position: absolute;
+    padding: 2px 5px 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #000000;
+}
+.whatsappFloatingIcon{
+    position: fixed;
+    bottom: 80px;
+    right: 3%;
+}
+.whatsappFloatingIcon img{
+    height: 55px;
+    float: right;
+    box-shadow: 0px 0px 10px 2px #00000057;
+    border-radius: 50%;
+}
+.whatsappFloatingIcon .showWhatsappMessage{
+    display: none;
+}
+.whatsappFloatingIcon:hover .showWhatsappMessage{
+    display: block;
+    position: inherit;
+    background: #29a71a;
+    padding: 10px 15px 10px 15px;
+    margin-right: 5px;
+    border-radius: 5px;
+    color: white;
+    margin-top: 5px;
+    right: 100px;
+}
+.inNavbar ul .inHeadBtnLogin{
+    text-transform: uppercase;
+    background: var(--color-primary);
+    color: white;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    border-radius: 5px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    padding-top: 10px;
+}
+body{
+	background-color: #ffffff;
+	font-size: 14px;
+	font-family: 'Poppins', sans-serif !important;
+    
+}
+body::-webkit-scrollbar {
+    width: 1em;
+}
+   
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    outline: 1px solid var(--color-primary);
+}
+
+html,
+body {
+    height: 100%;
+}
+#wrap {
+    min-height: 100%;
+}
+.preloader-wrapper {
+    width: 100% !important;
+    text-align: center !important;
+    padding-top: 200px !important;
+    height: 100%;
+}
+.loader {
+    width: 60px;
+    aspect-ratio: 1;
+    background: linear-gradient(#dc1818 0 0) bottom/100% 0% no-repeat #ccc;
+    -webkit-mask: 
+      radial-gradient(circle at 60% 65%, #000 62%, #0000 65%) top left, 
+      radial-gradient(circle at 40% 65%, #000 62%, #0000 65%) top right, 
+      linear-gradient(to bottom left, #000 42%,#0000 43%) bottom left , 
+      linear-gradient(to bottom right,#000 42%,#0000 43%) bottom right;
+    -webkit-mask-size: 50% 50%;
+    -webkit-mask-repeat: no-repeat;
+    animation: l19 2s infinite linear;
+    
+  }
+  @keyframes l19 {
+      90%,100% {background-size:100% 100%}
+  }
+
+.bg1{
+    background: url("../img/bg.png");
+}
+
+
+/*-- Fonts --*/
+.font-arizona{
+    font-family: 'Yesteryear', cursive;
+}
+.font-nunito{
+    font-family: 'Nunito', sans-serif;
+}
+.font-poppins{
+    font-family: 'Poppins', sans-serif;
+}
+.font-13{
+    font-size: 13px;
+}
+.font-15{
+    font-size: 15px !important;
+}
+.font-50{
+    font-size: 50px;
+}
+
+
+
+/* Colors */
+.colorPrimary{
+    color: var(--color-primary) !important;
+}
+.colorLightGrey{
+    color: #707070;
+}
+.colorSecondary{
+    color: var(--color-secondary);
+}
+.bgPrimary{
+    background-color: var(--color-primary) !important;
+}
+.bgSecondary{
+    background-color: var(--color-secondary) !important;
+}
+.colorGold{
+    color: #efca15 !important;
+}
+
+
+/*-- Form Styles --*/
+.label-1{
+    font-size: 13px;
+    margin-bottom: 5px;
+    letter-spacing: 0.3px;
+}
+.form-select{
+    border-color: #e2e5ec;
+    padding: 0.65rem 2rem 0.65rem 0.75rem;
+    font-size: 0.9rem;
+}
+.form-select:focus {
+    border-color: var(--color-primary);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(255 0 129 / 15%);
+}
+.form-control{
+    border-color: #e2e5ec;
+    padding: 0.65rem 2.25rem 0.65rem 0.75rem;
+    font-size: 0.9rem;
+}
+.form-control:focus {
+    border-color: var(--color-primary);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(255 0 129 / 15%);
+}
+.col-form-label{
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #444444;
+}
+.form-check-input:checked {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+.form-check-input:focus {
+    border-color: var(--color-primary)75;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(255 0 129 / 24%);
+}
+
+
+/*-- Buttons --*/
+.btnPrimary{
+    background-color: var(--color-primary) !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif;
+}
+.btnPrimary:hover,.btnPrimary:focus{
+    background-color: var(--color-primary) !important;  
+}
+
+
+
+.btnPrimaryBordered{
+    background-color: transparent !important;
+    color: var(--color-primary) !important;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif;
+    border-color: var(--color-primary) !important;
+}
+
+.btnSecondary{
+    background-color: var(--color-secondary) !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif;
+}
+.btnSecondary:hover,.btnSecondary:focus{
+    background-color: var(--color-secondary-hover) !important;  
+}
+.btnRed{
+    background-color: #df023f !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif; 
+}
+.btnGreen{
+    background-color: #55c508 !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif; 
+}
+
+
+
+/*-- Additional Margins & Paddings --*/
+.mt-minus-120{
+    margin-top: -120px;
+}
+.mt-minus-180{
+    margin-top: -180px;
+}
+.mt-minus-200{
+    margin-top: -200px;
+}
+.mt-minus-220{
+    margin-top: -220px;
+}
+.mb-50{
+    margin-bottom: 50px;
+}
+.inMT-35{
+    margin-top: 35px;
+}
+.inMT-5{
+    margin-top: 5px !important;
+}
+.inMB-5{
+    margin-bottom: 5px !important;
+}
+.inMT-2{
+    margin-top: 2px !important;
+}
+.inMT-75{
+    margin-top: 75px;
+}
+.pt-9{
+    padding-top: 9px !important;
+}
+.pb-9{
+    padding-bottom: 9px !important;
+}
+.pt-34{
+    padding-top: 34px !important;
+}
+/*-- Reusable Style --*/
+
+.overflow-scroll-x{
+    max-height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.maxH-60{
+   max-height: 60px; 
+}
+.maxH-200{
+   max-height: 200px; 
+}
+.maxH-180{
+   max-height: 180px; 
+}
+.maxH-250{
+    max-height: 250px;
+}
+.inTitle1{
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 0px;
+}
+.inLoginTitle2{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+.inSubTitle1{
+    font-size: 15px;
+    margin-bottom: 0px;
+    font-weight: 400;
+}
+.borderTopPrimary1{
+    border-top:1px solid var(--color-primary);
+}
+.borderBottomPrimary1{
+    border-bottom:1px solid var(--color-primary);
+}
+.borderBottomLgtGrey1{
+    border-bottom:1px solid #efefef;
+}
+.letterSpacing2{
+    letter-spacing: 2px;
+}
+.inPageHeader h2{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: 34px;
+    font-weight: 700;
+    color:var(--color-secondary);
+}
+.border-radius-5{
+    border-radius: 5px;
+}
+.avtar110{
+    border-radius: 50%;
+    max-height: 110px;
+}
+.avtar60{
+    max-height: 60px;
+    border-radius: 50%;
+}
+.avtar80{
+    max-height: 80px;
+    border-radius: 50%;
+}
+.inProfileThumb{
+    max-height: 70px;
+    border-radius: 5px;
+}
+.inTimesIconOver{
+    position: absolute;
+    margin-top: -15px;
+    margin-left: -15px;
+    border-radius: 30px;
+    background: #ff0909;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    transition:  all 0.3s ease;
+}
+.inTimesIconOver:hover,.inTimesIconOver:focus{
+    background: var(--color-secondary);
+    padding: 5px 10px 5px 10px;
+    color: white;
+}
+.inTimesIconOver i{
+    font-size: 12px;
+}
+.active>.page-link, .page-link.active{
+    background-color:var(--color-primary) !important;
+    border-color:var(--color-primary) !important;
+}
+.page-link{
+    color:var(--color-primary);
+}
+.inPanelActive{
+    color: var(--color-secondary-hover);
+    background: rgb(0 0 0 / 2%);
+    border-left: 3px solid var(--color-primary) !important;  
+}
+.inBorderColor1{
+    border-color: #ededed;
+}
+.inBorderRightMenu{
+    border-right: 1px solid var(--color-primary-hover);
+}
+.inBorderLeftMenu{
+    border-left: 1px solid var(--color-primary-hover);
+}
+.chosen-style-1 .chosen-container-single .chosen-single{
+    border-color: #e2e5ec !important;
+    padding: 0.65rem 2.25rem 0.65rem 0.75rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 0.375rem !important;
+    text-decoration: none !important;
+}
+.chosen-style-1 .chosen-container-single .chosen-single span{
+    font-size: 0.9rem !important;
+    text-decoration: none;
+}
+
+.chosen-style-2 .chosen-container-single .chosen-single{
+    border-color: #e2e5ec !important;
+    padding: 0.65rem 2rem 0.65rem 0.75rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 0.375rem !important;
+    text-decoration: none !important;
+}
+.chosen-style-2 .chosen-container-single .chosen-single span{
+    font-size: 0.9rem !important;
+    text-decoration: none;
+}
+
+.chosen-style-3 .chosen-container-multi .chosen-choices{
+    border-color: #e2e5ec !important;
+    padding: 0.48rem 2rem 0.48rem 0.75rem !important ;
+    font-size: 0.9rem !important;
+    border-radius: 0.375rem !important;
+    text-decoration: none !important;
+}
+.chosen-style-3 .chosen-container-multi .chosen-choices li.search-choice span{
+    font-size: 0.9rem !important;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.chosen-style-4 .chosen-container-single .chosen-single{
+    border-color: #e2e5ec !important;
+    padding: 0.6rem 2rem 0.48rem 0.75rem !important ;
+    font-size: 0.9rem !important;
+    border-radius: 0.375rem !important;
+    text-decoration: none !important;
+}
+.chosen-style-4 .chosen-container-single .chosen-single span{
+    font-size: 0.9rem !important;
+    text-decoration: none;
+}
+.chosen-container-multi .chosen-choices li.search-field input[type="text"]{
+    width: 100% !important;
+}
+
+
+/*-- Page Style --*/
+.inOtpCode .form-control{
+    padding: 0px !important;
+}
+.inMembershipOnlyFor{
+    font-size: 13px;
+    background: #ff0081;
+    display: inline-block;
+    padding: 5px 15px 5px 15px;
+    border-radius: 5px 5px 0px 0px;
+    color: white;
+    margin-bottom: -5px;
+}
+.inMembershipOnlyFor i{
+    font-size: 10px;
+    vertical-align: middle;
+}
+.razorpay-payment-button{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin-bottom: 0px;
+    color: #565656;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    padding-top: 86px;
+    font-size: 15px;
+}
+.btnMessageSend{
+    font-size: 20px;
+    text-align: center;
+    border-radius: 0px;
+    background-color: var(--color-primary);
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn.btnMessageSend:hover,.btn.btnMessageSend:focus{
+    background-color: #e20473;
+    color: white;
+}
+.chat-box-wrap .card-header span{
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--color-secondary);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: block;
+}
+.btn-link {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+.btn-link:hover {
+    color: var(--color-primary) !important;
+}
+.chat-list-wrap {
+    height: calc(80vh - 160px);
+    max-height: calc(80vh - 160px);
+    overflow-y: auto;
+}
+.chat-coversation {
+    max-width: 450px;
+    margin: 10px 0;
+}
+.chat-coversation .media-body .time {
+    font-size: 10px;
+    opacity: 0.5;
+    display: block;
+}
+.avatar-xs{
+    max-width: 35px;
+}
+.chat-coversation .media-body .text {
+    background: #f2f3f8;
+    padding: 10px 20px;
+    line-height: 1.7;
+    border-radius: 4px;
+}
+.chat-coversation.right .media-body .text {
+    background:rgb(255 0 129 / 25%) !important;
+    color: #fff;
+}
+.media {
+    display: flex;
+}
+.chat-list {
+    min-height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.media-body {
+    -ms-flex: 1;
+    flex: 1;
+}
+.chat-coversation .media{
+    align-items: flex-end;
+}
+.chat-coversation .avatar {
+    margin-right: 15px;
+    margin-bottom: 12px;
+}
+.chat-coversation.right {
+    margin-left: auto;
+}
+
+.chat-box-wrap{
+    border: 1px solid #f1f1f1;
+}
+.chat-box-wrap .chat-header{
+    border-radius: 5px 5px 0px 0px;
+}
+.chat-box-wrap .chat-header .avatar-sm img{
+    max-height: 50px !important;
+}
+.chat-box-wrap .chat-header .media-body h6{
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    color: var(--color-secondary);
+}
+.chat-user-list-wrap{
+    border: 1px solid #f1f1f1;
+}
+.card-header{
+    border-bottom: 1px solid #f1f1f1;
+}
+.chat-user-list-header span{
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--color-secondary);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: block;
+}
+.inAfterNav .navbar-toggler{
+    background: white;
+}
+.inChatUserContent .inChatLastMsg{
+    opacity: 60%;
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+.inChatUserContent .inChatLastTime{
+    font-size: 12px;
+}
+.inChatUserList a{
+    color:#3a3a3a;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+.inChatUserList a h6{
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    color: var(--color-secondary);
+}
+.inDocumentUpload input[type="file"] {
+    display: none;
+}
+.inManagePhoto input[type="file"] {
+    display: none;
+}
+.inPhotoUploadStatus{
+    position: absolute;
+    left: 0;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(0 0 0 / 20%);
+    border-radius: 5px 5px 0px 0px;
+    font-weight: 500;
+    font-size: 13px;
+    width: 100%;
+}
+.inPhotoUploadStatus .inStatusPending{
+    color: #ffc107;
+}
+.inMemberSpotlight .card-body{
+    border-top: 0px;
+    border-radius: 0px 0px 0.375rem 0.375rem;
+    border: 1px solid #ededed;
+}
+.inMemberSpotlight .card-header{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    background: rgb(255 0 128 / 5%);
+    border-bottom: 0px;
+    color: var(--color-primary);
+    letter-spacing: 0.4px;
+    border: 1px solid rgb(255 0 128 / 5%);
+}
+.inMemberSpotlight .card-header h5{
+    margin-bottom: 0px;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+}
+.inMemberSpotlight .card{
+    border: 0px;
+    background: none;
+}
+.inMemberSpotlight .card-body h5{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: 3px;
+}
+.inMemberSpotlight .card-body h4.btnSecondary{
+    font-size: 13px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+.inMemberSpotlight .card .card-body p{
+    font-size: 12px;
+    font-weight: 500;
+    color: #565656;
+    margin-bottom: 0px;
+}
+.inMemberSpotlight .card img{
+    border-radius: 5px !important;
+}
+
+.inMemberDetCard .card-body i{
+    color:#848484;
+    font-size: 20px;
+}
+.inMemberDetCard .card-body{
+    padding-bottom: 10px;
+}
+.inMemberDetCard .card-body h5{
+    margin-bottom: 15px;
+}
+.inMemberDetCard .card-header i{
+    color: var(--color-primary);
+}
+.inMemberDetCard .card-header{
+    background: white;
+    border-bottom-color: #ededed;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.inMemberDetCard .card-header h5{
+   margin-bottom: 0px;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+}
+.inMemberProfileAction a{
+    border-radius: 5px;
+    border: 1px solid #f9add3;
+}
+.inMemberProfileAction button{
+    border-radius: 5px;
+    border: 1px solid #f9add3 !important;
+}
+.inMemDet{
+    font-weight: 500;
+    color: var(--color-primary);
+}
+.inMemTopBasicDet h5{
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.inMemTopBasicDet h6{
+    font-size: 14px;
+    font-weight: 400;
+}
+.inMemTopName h5{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 3px
+}
+.inMemTopName h6{
+    font-size: 14px;
+    font-weight: 400;
+    color: #565656;
+}
+.inMemProfileImg{
+    border-radius: 15px;
+}
+.inMemOverLap{
+    padding-top: 60px;
+    padding-bottom: 200px;
+    background: #fef8fa;
+}
+.inInvoiceCustTot h4{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: 5px;
+}
+.inInvoiceCustTot h5{
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+.inInvoiceCustDet h4{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+.inInvoiceCustDet h5{
+    font-size: 14px;
+    font-weight: 600;
+}
+.inInvoiceCustDet h5 span{
+    color: var(--color-primary);
+    padding-right: 10px;
+}
+.inInvoiceText h3{
+    margin-bottom: 0px;
+    font-family: 'Nunito', sans-serif;
+    color: var(--color-secondary) !important;
+    font-weight: 800;
+    font-size: 26px;
+    padding-top: 15px;
+}
+.inInvoiceText h5{
+    font-size: 15px;
+    font-weight: 500;
+}
+.inInvoiceText h5 span{
+    font-size: 15px;
+    font-weight: 500;
+}
+.btnInvoice{
+    font-size: 20px;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: white;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+.btnInvoice:hover,.btnInvoice:focus{
+    background-color: var(--color-secondary-hover) !important;
+    color: white !important;
+}
+.inCurrentHisHead{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 3px;
+}
+.inCurrentHisData{
+    font-size: 14px;
+    font-weight: 600;
+    color: #565656;
+    margin-bottom: 0px;
+}
+.inPhotoPasswordText{
+    font-size: 13px; 
+    color:#565656;
+}
+.inPhotoPassword{
+    font-size: 13px;
+    color:#565656;
+}
+.inExpressStatus{
+    font-weight: 600;
+    font-size: 15px; 
+}
+.inPhotoTab li .nav-link.active{
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: var(--color-primary);
+    border-color: #dfdfdf #dfdfdf #ffffff;
+}
+.inPhotoTab li .nav-link{
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #565656;
+}
+.inNotification:hover,.inNotification:focus{
+    transition: all 0.2s ease;
+    background: #ededed;
+}
+
+.inNotificationMarkBtn{
+    padding-top: 8px;
+    padding-bottom: 8px;  
+}
+.inNotification h5{
+    font-size: 15px;
+    font-weight: 500;
+    color: #565656;
+    margin-bottom: 5px !important;
+    padding-top: 5px;
+}
+.inNotification p{
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+.inIconMenu .dropdown-toggle::after{
+    display: none;
+}
+.inIconMenu .nav-link i{
+    padding-left: 5px;
+    font-size: 14px !important;
+}
+.inPhotoPasswordSet .btnSecondary{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;  
+}
+.inPrivacyCurrentStatus h5{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    color: #565656;
+}
+.inPrivacyCurrentStatus .inPrivacyStatus{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    color: red;
+}
+.inPrivacyCurrentStatus .btnPrimary{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 14px;  
+}
+.inRefineTitle{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.inRefinePanel .filterSelect{
+    padding:0.65rem 1rem 0.65rem 0.75rem !important;
+}
+.inRefinePanel .card-header{
+    padding-top: 13px;
+    padding-bottom: 13px;
+    background: var(--color-secondary);
+    border-bottom: 0px;
+}
+.inRefinePanel h5{
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.4px;
+    color: white;
+    padding-top: 3px;
+}
+.inMainResultAction a{
+    text-decoration: none;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: all 0.2s ease;
+}
+.inMainResultAction a:hover,.inMainResultAction a:focus{
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.inMainResultAction button{
+    text-decoration: none;
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: none;
+    width: 100%;
+}
+.inMainResultAction button:hover,.inMainResultAction button:focus{
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.inMainResultAction i{
+    font-size: 20px;
+    color: var(--color-primary);
+}
+.inMainResultAction p{
+    font-size: 12px;
+    margin-bottom: 0px;
+    color: var(--color-secondary);
+}
+.inMainResultCard .card-text{
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #383838;
+}
+.inMainResultCard .card-title{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 3px;
+}
+.inMainResultCard h6{
+    font-size: 14px;
+    font-weight: 400;
+    color: #565656;
+}
+.inMsgViewThumb h5{
+    color:var(--color-secondary);
+    margin-bottom: 0px; 
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+}
+.inMsgViewThumb p{
+    margin-bottom: 0px;
+    color:var(--color-primary);
+    font-size: 13px;
+}
+.inMsgViewDate p{
+    font-size: 12px;
+    margin-bottom: 0px;
+    color:var(--color-secondary);
+}
+.inMsgViewDate h5{
+    font-size: 13px;
+    margin-bottom: 0px;
+    color:var(--color-primary);
+}
+.inMsgCardView{
+    border-color: #ededed;
+}
+.inMsgCardView .card-footer{
+    background-color: #f9f9f9 !important;
+    border-top-color: #f9f9f9 !important;
+}
+.inMsgCardView .card-footer .btn{
+    font-size: 12px !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+.inMsgSearchBtn{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    font-size: 14px !important;
+}
+.inMsgAction .btnSecondary{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+}
+.inMsgCard{
+    border-color: #ededed;
+}
+a.inMsgImpIcon{
+    color: grey;
+}
+.inMsgMatriId h5{
+    font-size: 15px;
+    margin-bottom: 0px;
+    padding-top: 2px;
+    color: var(--color-primary);
+}
+.inMsgSubject h5{
+    font-size: 14px;
+    margin-bottom: 0px;
+    padding-top: 2px;
+    color: #565656;
+}
+.inMsgDate p{
+    font-size: 12px;
+    margin-bottom: 0px;
+    padding-top: 2px;
+    color:var(--color-secondary);
+}
+.inCardHomeProfile .btnPrimary{
+    font-size: 13px; 
+}
+.inManagePhotoCard .btnSecondary.btn1{
+    color: var(--color-secondary) !important;
+    background-color: #f9f9f9 !important;
+    border-radius: 0px 0px 0px 5px;
+    border-right-color: white;
+}
+.inManagePhotoCard .btnSecondary.btn2{
+    color: var(--color-secondary) !important;
+    background-color: #f9f9f9 !important;
+    border-radius: 0px 0px 5px 0px;
+    border-left-color: white;
+}
+.inEditPrefPartHeader h3{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    color: var(--color-primary);
+    background: rgb(255 0 128 / 5%);
+    border-bottom: 0px;
+    border-radius: 5px;
+}
+.inEditCard .card-body .btnPrimary{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.inEditCard{
+    border-color: #ededed;
+}
+.inEditCard .card-header h4{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-family: 'Nunito', sans-serif;
+    color: var(--color-secondary);
+}
+.inEditCard .card-header{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom-color: #ededed;
+    background-color: #fbfbfb;
+}
+.inAfterNav .dropdown-item{
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.3px;
+    padding-top:7px;
+    padding-bottom: 7px;
+    color: #565656;
+}
+.inAfterNav .dropdown-item:hover,inAfterNav .dropdown-item:focus{
+    background-color: #f8f8f8;
+}
+.inToastExpress{
+   	background: #2c2c2cd4 !important;
+	border-color: transparent;
+    margin-bottom: 30px !important;
+
+}
+.inToastExpress strong{
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+}
+.inHomeMemCard{
+    background: rgb(255 242 249);
+    border-color: rgb(255 0 129 / 10%);
+}
+.inHomePlanName h4{
+    font-size: 16px;
+    font-weight: 600;
+    color: #565656;
+    margin-bottom: 5px;
+}
+.inHomePlanName h4 span{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+.inHomePlanExpiry p{
+    margin-bottom: 5px;
+    color: #565656;
+}
+.inHomePlanExpiry p span{
+    margin-bottom: 5px;
+    color: red;
+}
+.inHomeMemCard .inPlanDes{
+    font-size: 14px;
+    color: #565656; 
+    margin-bottom: 5px;
+}
+.inHomeMemCard .inPlanValue{
+    font-size: 1.3rem;
+    margin-bottom: 0px;
+}
+.inDashHello{
+    font-size: 24px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color:#565656;
+}
+.inDashHello small{
+    color: var(--color-primary);
+}
+.inDashActiveProfile .alert-primary{
+    background-color: rgb(207 226 255 / 39%);
+    border-color: rgb(182 212 254 / 36%);
+}
+.inDashActiveProfile .btnSecondary{
+    font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 38px;
+}
+.inDashActiveProfile p{
+    letter-spacing: 0.3px;
+}
+.inDashProfileMeter h5{
+    font-size: 18px;
+    font-weight: 400;
+}
+.inDashProfileMeter p{
+    font-size: 12px;
+    margin-top: 5px;
+    color:#565656;
+}
+.inDashProfileMeter .progress-bar{
+    background-color: var(--color-secondary);
+}
+.inDashMatriSearch .btnPrimary{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.inProfileSM .card-footer{
+    padding: 0px;
+    border-top: 0px;
+    background: none;
+}
+.inProfileSM .card-footer .btnPrimary{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+.inProfileSM .card-footer .btnPrimaryBordered{ 
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+.inProfileSM a{
+    text-decoration: none;
+}
+.inProfileSM{
+    border: 0px;
+    background: none;
+}
+.inProfileSM .card-img-top img{
+    border-radius: 10px 10px 10px 10px;
+}
+.inProfileSM h5{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: 3px;
+}
+.inProfileSM p{
+    font-size: 12px;
+    font-weight: 500;
+    color: #565656;
+    margin-bottom: 0px;
+}
+.inDashProfile .inDashTitle{
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    padding-top: 5px;
+    font-family: 'Nunito', sans-serif;
+    color: var(--color-secondary);
+}
+.inDashProfile .inDashAllBtn{
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-weight: 800;
+    font-size: 13px;
+}
+.inCardHomeProfile{
+    border-color: #ededed;
+}
+.inCardHomeProfile .btnSecondary{
+    font-size: 13px;
+}
+.inLeftPanelCard{
+    border:0px;
+}
+.inLeftPanelCard .card-header{
+    font-weight: 700;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    background: rgb(255 0 128 / 5%);
+    border-bottom: 0px;
+    color: var(--color-primary);
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.4px;
+    border:1px solid rgb(255 0 128 / 5%);
+}
+.inLeftPanelCard .card-body{
+    padding: 0px;
+    border:1px solid #ededed;
+    border-top: 0px;
+    border-radius: 0px 0px 0.375rem 0.375rem;
+}
+.inLeftPanelCard .card-body ul li a{
+    font-size: 13px;
+    color: var(--color-secondary);
+    margin-bottom: 0px;
+    font-weight: 500;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent; 
+}
+.inLeftPanelCard .card-body ul li a:hover,.inLeftPanelCard .card-body ul li a:focus{
+    color: var(--color-secondary-hover);
+    background: rgb(0 0 0 / 2%);
+    border-left: 3px solid var(--color-primary); 
+}
+.inBottomFixNav a{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    text-decoration: none;
+    color:var(--color-primary);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.inBottomFixNav{
+    text-align: center;
+}
+.inBottomFixNav i{
+    font-size: 16px;
+}
+.inBottomFixNav h5{
+    font-size: 10px;
+    margin-bottom: 0px;
+}
+.inBottomFixNav span.badge{
+    top: 12px;
+    margin-left: 10px;
+}
+.inOffNavName{
+    font-weight: 700;
+    margin-top: 5px;
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: var(--color-primary);
+}
+.inOffNavId{
+    font-size: 14px;
+    font-weight: 500;
+    color: #565656;
+}
+.inAfterNav{
+    padding: 0px;
+}
+.inAfterNav .nav-item .nav-link{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 13px;
+    padding-right: 13px;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.3px;
+}
+.inAfterNav .nav-item a i{
+    padding-right: 5px;
+    font-size: 12px;
+}
+.inAfterNav .nav-item .nav-link:hover{
+    background-color: var(--color-primary-hover);
+}
+.inHeaderName span{
+    color:var(--color-primary);
+}
+.inHeaderStatus{
+    color: #565656;
+    font-size: 13px;
+}
+.inHeaderStatus b{
+    font-weight: 600;
+    color:var(--color-secondary);
+}
+.inHeaderUser .card img{
+    border-radius: 5px;
+    max-height: 60px;
+}
+.inHeaderUser .card .card-body{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.inHeaderUser .card .card-title{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: #565656;
+}
+.paymentOptionCard{
+    text-decoration: none;
+}
+.paymentOptionCard .card h5{
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin-bottom: 0px;
+    color: #565656;
+}
+.inPaymentOption .inPlanPrice {
+    font-weight: 800;
+    color: var(--color-secondary);
+    margin-bottom: 0px;
+    font-size: 28px;
+}
+.inPaymentOption .inPlanName {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+.inPaymentOption .card img{
+    max-height: 90px;
+}
+.inPaymentOption .card{
+    border-color: #ededed;
+}
+.inPaymentOption .inPlanDes {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #6e6e6e;
+    margin-top: 10px;
+}
+.inPaymentOption .inPlanValue {
+    margin-bottom: 0px;
+    color: var(--color-secondary);
+    font-weight: 700;
+    font-size: 20px;
+}
+.inPaymentTitle{
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-primary) !important;
+    padding-bottom: 15px;
+}
+.inMobileVerification .card{
+     border-color: #ededed; 
+}
+.inMobileVerification .card .btnSecondary{
+    font-size: 13px;
+    font-weight: 600;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.inLoginTitle{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+.inLogin .card{
+    border-color: #ededed;
+}
+.inLoginCreateText a{
+    font-size: 16px;
+    font-weight: 600;
+    color:var(--color-primary);
+    text-decoration: none;
+}
+.inForgotPasswordLink{
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    color: var(--color-secondary) !important;
+    text-decoration: none;  
+    transition: all 0.3s ease;
+}
+.inForgotPasswordLink:hover,.inForgotPasswordLink:focus{
+    text-decoration: underline;  
+}
+.inPostCard.card {
+    border-color: #ededed;  
+}
+.inStoryCard{
+    border:0px;
+    box-shadow: 0px 0px 8px 2px rgb(0 0 0 / 10%);
+    border-radius: 5px;
+}
+.inStoryCard .card-img-top img{
+    border-radius: 5px 5px 0px 0px;
+}
+.inStoryCard .card-title{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+.inStoryCard .card-text{
+    font-size: 13px; 
+    color:#6e6e6e;
+}
+.inStoryCard h6{
+    font-weight: 600;
+    font-size: 13px;
+    color: #565656;
+}
+.inSuccessPill .nav-pills .nav-link.active, .inSuccessPill .nav-pills .show >.nav-link {
+    color: var(--color-secondary) !important;
+    border-bottom: 3px solid var(--color-secondary);
+}
+.inStoryCard .btnSecondary{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 12px;
+}
+.inSuccessPill .nav-pills .nav-link {
+    background-color: transparent !important;
+    color: #212529;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid transparent;
+    border-radius: 0px;
+    transition: all 0.3s ease;
+}
+.inSearchCard .card h4{
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-primary) !important;
+    padding-bottom: 15px;
+    letter-spacing: 0.5px;
+    padding-top: 30px;
+}
+.inSearchCard .card{
+    border-color: #ededed;
+}
+.inSearchPill .nav-pills .nav-link.active, .inSearchPill .nav-pills .show >.nav-link {
+    color: var(--color-secondary) !important;
+    border-bottom: 3px solid var(--color-secondary);
+}
+.inSearchPill .nav-pills .nav-link {
+    background-color: transparent !important;
+    color: #212529;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid transparent;
+    border-radius: 0px;
+    transition: all 0.3s ease;
+}
+
+.inMembershipCard .inPlanValue{
+    margin-bottom: 0px;
+    color: var(--color-secondary);
+    font-weight: 700;
+    font-size: 20px;
+}
+.inMembershipCard .inPlanDes{
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #6e6e6e;
+    margin-top: 10px;
+}
+.inMembershipCard .inPlanName{
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+.inMembershipCard .inPlanPrice{
+    font-weight: 800;
+    color: var(--color-secondary);
+    margin-bottom: 0px;
+    font-size: 28px;
+}
+.inMembershipCard .card{
+    border-color: #ededed;
+    
+}
+footer{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #202a46;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    border-top: 1px solid #2e4060;
+}
+footer a{
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+footer a:hover,footer a:focus{
+    color: var(--color-primary-hover);
+}
+.inFollowIcon li a{
+    /* color: #b7b7b7; */
+    color: #fafafa;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.inFollowIcon li a i{
+    font-size: 30px;
+    transition: all 0.2s ease;
+}
+.inFollowIcon li a:hover{
+    color: white;
+}
+.inFollowIcon li a:hover i{
+    transform: scale(1.2);
+}
+.inFooter1{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: var(--color-secondary);
+    border-top: 1px solid whitesmoke;
+    letter-spacing: 0.5px;
+    color:#fafafa;
+    /* color: #d7d7d7;   */
+}
+.inFooterLinks h1{
+    font-size: 15px;
+    font-weight: 700;
+    color: #fafafa !important;
+    /* color: var(--color-primary) !important; */
+    padding-bottom: 15px;
+}
+.inFooterLinks ul li a{
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fafafa;
+    /* color: #b7b7b7; */
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+.inFooterLinks ul li a:hover,.inFooterLinks ul li a:focus{
+    color: #ffffff;
+}
+.inFooterContact h1{
+    font-size: 15px;
+    font-weight: 800;
+    color: #fafafa !important;
+}
+.inFooterContact h4{
+    font-size: 14px;
+    font-weight: 400;
+    color:#fafafa;
+    /* color: #b7b7b7; */
+}
+.inHeartsGroup {
+    position: relative;
+    display: inline-block;
+    padding: 0 5px;
+    background: #FFFFFF;
+    color: var(--color-secondary); 
+}
+.inHearts:before {
+    content: '';
+    width: 100%;
+    top: 22px;
+    left: 0;
+    border-top: 1px solid #f1f1f1;
+    position: absolute;
+}
+.inHearts {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    width: 46%;
+    position: relative;
+    text-align: center;
+}
+.inBrowseOption a{
+    padding: 8px 20px;
+    border-radius: 40px;
+    border: 1px solid #6a6a6a;
+    color: #6a6a6a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+    background-color: #fbfbfb;
+    letter-spacing: 0.5px;
+}
+.inBrowseOption a:hover,.inBrowseOption a:focus{
+    background: var(--color-secondary);
+    color: #ffffff;
+}
+.inBrowseProfilePill .nav-pills .nav-link{
+    background-color: transparent !important;
+    color: #212529;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid transparent;
+    border-radius: 0px;
+    transition: all 0.3s ease;
+}
+.inBrowseProfilePill .nav-pills .nav-link.active,.inBrowseProfilePill .nav-pills .show >.nav-link{
+    color: var(--color-secondary) !important;
+    border-bottom: 3px solid var(--color-secondary);
+}
+.inBrowseProfilePill .nav-pills .nav-link:hover{
+    color: var(--color-secondary) !important;
+    border-bottom: 3px solid var(--color-secondary);
+}
+.inBrowseProfile{
+    padding-top: 50px;
+    padding-bottom: 50px; 
+}
+.inSuccessStory{
+    background: rgb(22 8 100 / 7%);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.inSuccessStory .card-img-overlay{
+    top: auto;
+    background: rgb(0 0 0 / 35%);
+}
+.inSuccessStory .card-img-overlay .card-title{
+    font-size: 34px;
+    letter-spacing: 0.5px;
+}
+.inSuccessStory .card a:hover .card-img-overlay{
+    top: 0;
+    background-color: white;
+    transition: all 0.4s ease-out;
+}
+.inSuccessSub{
+    display: none;
+}
+.inSuccessStory .card a:hover .inSuccessSub{
+   display: block;
+}
+.inSuccessStory .card a:hover .card-title,.inSuccessStory.card a:hover .card-text{
+    display: none;
+}
+a.inFeturedCard{
+    text-decoration: none;
+}
+a.inFeturedCard .card{
+    border-color: #F1F1F1 !important;
+}
+.inFeturedCard h4{
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color:var(--color-primary); 
+}
+.inFeturedCard h5{
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: #484848;
+    font-size: 13px;
+}
+.inFeturedCard p{
+    font-weight: 500;
+    color: #484848;
+    font-size: 13px;
+}
+.inFeaturedBride{
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+.inFeaturedGroom{
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+.inSteps{
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+.inSteps h3{
+    margin-top: 30px;
+    font-size: 32px;
+    color: var(--color-primary);
+}
+.inSteps h4{
+    font-weight: 600;
+    color: #484848;
+}
+.inSteps h5{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Nunito', sans-serif;
+    color:var(--color-primary); 
+}
+.inSteps img{
+    max-height: 150px;
+}
+.inDashSearch{
+    background: #ffffff;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 50px;
+}
+.owl-carousel .owl-wrapper-outer{
+    max-height: 900px;
+}
+.inFormTerms a{
+    text-decoration: none;
+    font-weight: 600;
+    color:#1B1B1B;
+}
+.inFormTerms a:hover,.inFormTerms a:focus{
+    text-decoration: underline;
+}
+.inFormTerms label{
+    color:#1B1B1B;
+}
+.inLogo img{
+    max-height: 70px;
+}
+.inNavbar{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.inNavbar ul li a{
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--color-primary);
+    font-family: 'Nunito', sans-serif;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    letter-spacing: 0.4px;
+}
+.inNavbar ul li a:hover,.inNavbar ul li a:hover{
+   transition: all 0.3s ease;
+}
+
+.inNavbar ul .inHeadBtnReg{
+    text-transform: uppercase;
+    background: var(--color-primary);
+    color: white;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    border-radius: 5px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    padding-top: 10px;
+}
+.inSlider{
+    position: absolute !important;
+    z-index: -1;
+}
+
+@keyframes heartbeat{
+    0%{
+        transform: scale(.75);
+    }
+    20%{
+        transform: scale(1);
+    }
+    40%{
+        transform: scale(.75);
+    }
+    60%{
+        transform: scale(1);
+    }
+    80%{
+        transform: scale(.75);
+    }
+    100%{
+        transform: scale(.75);
+    }
+}
+.heart{
+  animation: heartbeat 1s infinite;
+}
+
+/*-- Media Queries --*/
+@media (max-width: 575.98px){
+    .inMainResultCard .maxH-250{
+        max-height: 100%;
+        width: 100%;
+    }
+    .inPhotoReqCard .maxH-180{
+        max-height: 100%;
+        width: 100%;
+    }
+    .inSlider {
+        position: relative !important;
+        z-index: -1;
+    }
+    .inNavbar ul li a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .inLogo img {
+        max-height: 50px;
+    }
+   
+    .inAfterNav .nav-item .nav-link {
+        color: var(--color-primary);
+    }
+    .inAfterNav .nav-item .nav-link:hover,.inAfterNav .nav-item .nav-link:active {
+        background-color: var(--color-primary-hover);
+        color:white !important;
+    }
+    .inDashMatriSearch .btnPrimary {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 13px;
+    }
+    .inHomeMemCard .inPlanValue{
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    .inDashProfile .inDashTitle {
+        font-size: 16px;
+        padding-top: 10px;
+    }
+    .inDashProfile .inDashAllBtn {
+        font-size: 12px;
+    }
+    
+}
+@media (max-width: 767.98px) { 
+    .inAfterNav .nav-item .nav-link {
+        color: var(--color-primary);
+    }
+    .inAfterNav .nav-item .nav-link:hover,.inAfterNav .nav-item .nav-link:active {
+        background-color: var(--color-primary-hover);
+        color:white !important;
+    }
+    .inMainResultCard .maxH-250{
+        max-height: 100%;
+        width: 100%;
+    }
+    .inPhotoReqCard .maxH-180{
+        max-height: 100%;
+        width: 100%;
+    }
+    .inMemOverLap {
+        padding-top: 30px;
+    }
+    .inMemOverLap .btnPrimary{
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: 13px;
+    }
+    .inMemberProfile .mt-minus-220 {
+        margin-top: -170px;
+    }
+    .inMemberProfile .inMT-75{
+        margin-top:30px; 
+    }
+    .inMemberDetCard .card-body i {
+        font-size: 14px;
+    }
+}
+@media (max-width: 991.98px) {
+    .inAfterNav .nav-item .nav-link {
+        color: var(--color-primary) !important;
+    }
+    .inAfterNav .nav-item .nav-link:hover,.inAfterNav .nav-item .nav-link:active {
+        background-color: var(--color-primary-hover);
+        color:white !important;
+    }
+    .inMainResultCard .maxH-250{
+        max-height: 100%;
+        width: 100%;
+    }
+    .inPhotoReqCard .maxH-180{
+        max-height: 100%;
+        width: 100%;
+    }
+    .inMemOverLap {
+        padding-top: 50px;
+        padding-bottom: 270px;
+    }
+    .inMemOverLap .btnPrimary{
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: 13px;
+    }
+    .inMemberProfile .mt-minus-220 {
+        margin-top: -240px;
+    }
+    .inMemberProfile .inMT-75{
+        margin-top:30px; 
+    }
+}
+@media (max-width: 1199.98px) {
+    .inPhotoReqCard .maxH-180{
+        max-height: 220px;
+    }
+    .inAfterNav .nav-item .nav-link {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: white;
+        font-weight: 700;
+        font-size: 12px;
+        font-family: 'Nunito', sans-serif;
+        letter-spacing: 0.3px;
+    }
+    .inCardHomeProfile .btnSecondary {
+        font-size: 12px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .inDashActiveProfile p {
+        letter-spacing: 0.3px;
+        font-size: 12px;
+    }
+    .inDashActiveProfile .btnSecondary {
+        font-size: 13px;
+        padding-left: 13px;
+        padding-right: 13px;  
+    }
+    .inLeftPanelCard .card-body ul li a {
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .inMemberProfile .inMemOverLap {
+        padding-top: 50px;
+    }
+    .inMemberProfile .mt-minus-220 {
+        margin-top: -180px;
+    }
+    .inMemberProfile .inMT-75{
+        margin-top: 50px;
+    }
+}
+
+

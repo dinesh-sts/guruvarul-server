@@ -1,0 +1,359 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="x-apple-disable-message-reformatting">
+	<title></title>
+  
+	<style type="text/css">
+		a { color: #0000ee; text-decoration: underline; }
+		@media only screen and (min-width: 620px) {
+			.u-row {
+				width: 600px !important;
+			}
+			.u-row .u-col {
+				vertical-align: top;
+			}
+
+			.u-row .u-col-100 {
+				width: 600px !important;
+			}
+		}
+
+		@media (max-width: 620px) {
+			.u-row-container {
+				max-width: 100% !important;
+				padding-left: 0px !important;
+				padding-right: 0px !important;
+			}
+			.u-row .u-col {
+				min-width: 320px !important;
+				max-width: 100% !important;
+				display: block !important;
+			}
+			.u-row {
+				width: calc(100% - 40px) !important;
+			}
+			.u-col {
+				width: 100% !important;
+			}
+			.u-col > div {
+				margin: 0 auto;
+			}
+		}
+		body {
+		  margin: 0;
+		  padding: 0;
+		}
+
+		table,
+		tr,
+		td {
+		  vertical-align: top;
+		  border-collapse: collapse;
+		}
+
+		p {
+		  margin: 0;
+		}
+
+		.ie-container table,
+		.mso-container table {
+		  table-layout: fixed;
+		}
+
+	* {
+	  line-height: inherit;
+	}
+
+	a[x-apple-data-detectors='true'] {
+	  color: inherit !important;
+	  text-decoration: none !important;
+	}
+
+</style>
+<link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet" type="text/css">
+</head>
+	
+<body class="clean-body" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #f9f9f9">
+	<table style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #f9f9f9;width:100%" cellpadding="0" cellspacing="0">
+		<tbody>
+			<tr style="vertical-align: top">
+				<td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+					<div class="u-row-container" style="padding: 0px;background-color: transparent">
+						<div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
+							<div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+								<div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+									<div style="width: 100% !important;">
+										<div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+											<table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+												<tbody>
+													<tr>
+														<td style="overflow-wrap:break-word;word-break:break-word;padding:20px;font-family:'Cabin',sans-serif;" align="left">
+															<table width="100%" cellpadding="0" cellspacing="0" border="0">
+																<tr>
+																	<td style="padding-right: 0px;padding-left: 0px;" align="center">
+                                                                      
+                                                                        <?php
+                                                                            $site_setting = DB::table('site_configs')->first();
+                                                                        ?>
+                                                                       
+                                                                        @if($site_setting->web_logo_path != null)
+                                                                            <img align="center" border="0" src="{{asset('storage/siteConfig/'.$site_setting->web_logo_path)}}" alt="Image"  style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 32%;max-width: 179.2px;" width="179.2"/>
+                                                                        @endif
+                                                                    </td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="u-row-container" style="padding: 0px;background-color: transparent">
+							<div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #454545;">
+								<div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+									<div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+										<div style="width: 100% !important;">
+											<div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+												<table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+													<tbody>
+														<tr>
+															<td style="overflow-wrap:break-word;word-break:break-word;padding:40px 10px 10px;font-family:'Cabin',sans-serif;" align="left">
+																<table width="100%" cellpadding="0" cellspacing="0" border="0">
+																	<tr>
+																		<td style="padding-right: 0px;padding-left: 0px;" align="center">
+																			<img align="center" border="0" src="https://cdn.templates.unlayer.com/assets/1597218650916-xxxxc.png" alt="Image" title="Image" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 26%;max-width: 150.8px;" width="150.8"/>
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												
+												<table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+													<tbody>
+														<tr>
+															<td style="overflow-wrap:break-word;word-break:break-word;padding:0px 10px 31px;font-family:'Cabin',sans-serif;" align="left">
+																<div style="color: #e5eaf5; line-height: 140%; text-align: center; word-wrap: break-word;">
+																	<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 28px; line-height: 39.2px;"><strong><span style="line-height: 39.2px; font-size: 28px;">MATCHING PROFILES</span></strong></span></p>
+																</div>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="u-row-container" style="padding: 0px;background-color: transparent">
+								<div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
+									<div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+										<div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+											<div style="width: 100% !important;">
+												<div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                                                    
+                                                    @foreach($content as $member)
+                                                    @php
+                                                       $memberData = DB::table('registers')->where('id',$member)->first();
+                                                       $height =  DB::table('heights')->where('id',$memberData->height)->first();
+                                                       $religion =  DB::table('religions')->where('id',$memberData->religion)->first();
+                                                       $caste =  DB::table('castes')->where('id',$memberData->caste)->first();
+                                                       $country =  DB::table('countries')->where('id',$memberData->country_id)->first();
+                                                    @endphp
+                                                    
+													<table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+														<tbody>
+															<div id="gtProfile" style="margin-bottom: 20px;">
+																<div id="gtProfilePic" style="display: table-cell;padding: 15px;">
+                                                                    @if($memberData->photo1 != '')
+																	<img src="{{ asset('storage/userImages/'.$memberData->photo1) }}" style="display: block;height: 150px;">
+                                                                    @else
+                                                                        @if($memberData->gender == 'Male')
+                                                                            <img src="{{ asset('admin/img/male.jpg') }}" style="display: block;height: 150px;">
+                                                                        @else
+                                                                            <img src="{{ asset('admin/img/female.jpg')}}" style="display: block;height: 150px;">
+                                                                        @endif
+                                                                    @endif
+																</div>
+																<div id="gtProfileDetails" style="display: table-cell;vertical-align: top;padding: 15px;">
+																	<h4 style="font-family: Roboto, sans-serif;font-size: 22px;font-weight: 400;margin-top: 0px;margin-bottom: 5px;">{{ $memberData->firstname }} {{ $memberData->lastname }}</h4>
+																	<h5 style="font-family: Roboto, sans-serif;margin-top: 10px;font-weight: 400;font-size: 14px;margin-bottom: 15px;color: #383838;">
+
+                                                                        <?php   
+                                                                        if($memberData->birthdate){
+                                                                            $from = Carbon\Carbon::parse($memberData->birthdate);
+                                                                            $to = Carbon\Carbon::now();
+                                                                            $age = $from->diff($to)->y;
+                                                                        }
+                                                                    ?>
+                                                                    @if(isset($memberData->birthdate)) {{ $age }} Yrs @endif,@if(isset($memberData->height)) {{ $height->height }}, @endif @if(isset($memberData->religion)) {{ $religion->religion_name }} @endif,@if(isset($memberData->caste)) {{ $caste->caste_name }} @endif,</br>@if(isset($memberData->country_id)) {{ $country->country_name }} @endif</h5>
+
+																	<a href="{{ route('user.memberProfile',$memberData->matri_id) }}" style="font-family: Roboto, sans-serif;padding: 10px 20px 10px 20px;font-size: 14px;background: rgb(234, 38, 38);display: inline-block;color: white;text-decoration: none;border-radius: 3px;margin-top: 10px;margin-bottom: 10px;">View Profile</a>
+																</div>
+															</div>
+														</tbody>
+													</table>
+
+													@endforeach
+														<tbody>
+															<tr>
+																<td style="overflow-wrap:break-word;word-break:break-word;padding:33px 55px 60px;font-family:'Cabin',sans-serif;" align="left">
+																	<div style="color: #000000; line-height: 160%; text-align: center; word-wrap: break-word;">
+																		<p style="line-height: 160%; font-size: 14px;"><span style="font-size: 18px; line-height: 28.8px;">Thanks,</span></p>
+																	<p style="line-height: 160%; font-size: 14px;"><span style="font-size: 18px; line-height: 28.8px;">Team @if(isset($site_setting->web_name)){{$site_setting->web_name}}@endif</span></p>
+																	</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+								</div>
+							</div>
+							<div class="u-row-container" style="padding: 0px;background-color: transparent">
+								<div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #e5eaf5;">
+									<div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+										<div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+											<div style="width: 100% !important;">
+												<div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+													<table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+														<tbody>
+															<tr>
+																<td style="overflow-wrap:break-word;word-break:break-word;padding:41px 55px 18px;font-family:'Cabin',sans-serif;" align="left">
+                                                                    
+																	<div style="color: #003399; line-height: 160%; text-align: center; word-wrap: break-word;">
+																		<p style="font-size: 14px; line-height: 160%;"><span style="font-size: 20px; line-height: 32px;"><strong>Get in touch</strong></span></p>
+																		<p style="font-size: 14px; line-height: 160%;"><span style="font-size: 16px; line-height: 25.6px; color: #000000;">{{$site_setting->contact_no}}</span></p>
+																		<p style="font-size: 14px; line-height: 160%;"><span style="font-size: 16px; line-height: 25.6px; color: #000000;">{{$site_setting->contact_email}}</span></p>
+																	</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+
+													<table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+														<tbody>
+															<tr>
+																<td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 33px;font-family:'Cabin',sans-serif;" align="left">
+																	<div align="center">
+																			<div style="display: table; max-width:244px;">
+																				<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
+																					<tbody>
+																						<tr style="vertical-align: top">
+																							<td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+																								<a href="@if($site_setting->facebook_status == "APPROVED"){{$site_setting->facebook}}@endif" title="Facebook" target="_blank">
+																									<img src="https://cdn.tools.unlayer.com/social/icons/circle-black/facebook.png" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+																								</a>
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+
+																				<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
+																					<tbody>
+																						<tr style="vertical-align: top">
+																							<td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+																								<a href="@if($site_setting->linkedin_status == "APPROVED"){{$site_setting->linkedin}}@endif" title="LinkedIn" target="_blank">
+																									<img src="https://cdn.tools.unlayer.com/social/icons/circle-black/linkedin.png" alt="LinkedIn" title="LinkedIn" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+																								</a>
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+																				<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
+																					<tbody>
+																						<tr style="vertical-align: top">
+																							<td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+																								<a href="@if($site_setting->instagram_status == "APPROVED"){{$site_setting->instagram}}@endif" title="Instagram" target="_blank">
+																								  <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/instagram.png" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+																								</a>
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+
+																				<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 17px">
+																					<tbody>
+																						<tr style="vertical-align: top">
+																							<td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+																								<a href="@if($site_setting->youtube_status == "APPROVED"){{$site_setting->youtube}}@endif" title="YouTube" target="_blank">
+																								  <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/youtube.png" alt="YouTube" title="YouTube" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+																								</a>
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+																				<table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
+																					<tbody>
+																						<tr style="vertical-align: top">
+																							<td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+																								<a href="@if($site_setting->twitter_status == "APPROVED"){{$site_setting->twitter}}@endif" title="Email" target="_blank">
+																								  <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/email.png" alt="Email" title="Email" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+																								</a>
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+                                                                                <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
+																					<tbody>
+																						<tr style="vertical-align: top">
+																							<td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+																								<a href="@if($site_setting->pinterest_status == "APPROVED"){{$site_setting->pinterest}}@endif" title="Email" target="_blank">
+																								  <img src="https://cdn.tools.unlayer.com/social/icons/circle-black/email.png" alt="Email" title="Email" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+																								</a>
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+																			</div>
+																		</div>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="u-row-container" style="padding: 0px;background-color: transparent">
+								<div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #454545;">
+									<div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+										<div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+											<div style="width: 100% !important;">
+												<div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+													<table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+														<tbody>
+															<tr>
+																<td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+																	<div style="color: #fafafa; line-height: 180%; text-align: center; word-wrap: break-word;">
+																		<p style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px;">Copyrights &copy; @if(isset($site_setting->web_name)){{$site_setting->web_name}}@endif All Rights Reserved</span></p>
+																	</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
