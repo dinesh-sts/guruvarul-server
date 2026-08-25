@@ -267,6 +267,35 @@
                                         </div>
                                     </div>
                                     @endif
+                                    <div class="mb-4 row">
+                                        <div class="col-12">
+                                            <h4 class="font-nunito borderBottomPrimary1">Horoscope Details</h4>
+                                        </div>
+                                    </div>
+                                    @if(!isset($fieldsetting->star) || $fieldsetting->star == "Yes" )
+                                    <div class="mb-4 row chosen-style-3">
+                                        <label for="inputPassword" class="col-sm-3 col-form-label">Star</label>
+                                        <div class="col-sm-6">
+                                            <select name="part_star[]" class="form-select chosen-select" id="part_star" data-placeholder="Select Star" multiple>
+                                                @foreach($stars as $star)
+                                                <option value="{{$star->id}}">{{$star->star}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    @if(!isset($fieldsetting->rasi) || $fieldsetting->rasi == "Yes" )
+                                    <div class="mb-4 row chosen-style-3">
+                                        <label for="inputPassword" class="col-sm-3 col-form-label">Rasi / Moonsign</label>
+                                        <div class="col-sm-6">
+                                            <select name="part_rasi[]" class="form-select chosen-select" id="part_rasi" data-placeholder="Select Rasi / Moonsign" multiple>
+                                                @foreach($rashies as $rasi)
+                                                <option value="{{$rasi->id}}">{{$rasi->rasi}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    @endif
                                     <div class="mb-3 text-center">
                                         <button type="submit" id="submit" name="submit" class="btn btnPrimary">SEARCH</button>
                                     </div>
