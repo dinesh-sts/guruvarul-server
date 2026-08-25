@@ -20,39 +20,36 @@
         }
     }
 
-    $eduName = null;
-    if (isset($data->edu_detail) && $data->edu_detail !== '') {
+    $eduName = $data->h_edu->edu_name ?? null;
+    if (empty($eduName) && isset($data->edu_detail) && $data->edu_detail !== '') {
         $eduDetails = explode(',', $data->edu_detail);
-        $eduName = DB::table('education_details')->where('id', $eduDetails[0])->value('edu_name');
+        $eduName = DB::table('education_details')->where('id', trim($eduDetails[0]))->value('edu_name');
     }
 
-    $metaChips = [];
+    $detailRows = [];
     if ($age !== null) {
-        $metaChips[] = $age . ' Yrs';
+        $detailRows[] = ['label' => 'Age', 'value' => $age . ' Yrs'];
     }
-    if (isset($data->height) && !empty($data->hei->height ?? null)) {
-        $metaChips[] = $data->hei->height;
+    if (!empty($data->rel->religion_name ?? null)) {
+        $detailRows[] = ['label' => 'Religion', 'value' => $data->rel->religion_name];
     }
-    if (isset($data->m_tongue) && !empty($data->mother_tongue->mtongue_name ?? null)) {
-        $metaChips[] = $data->mother_tongue->mtongue_name;
+    if (!empty($data->cast->caste_name ?? null)) {
+        $detailRows[] = ['label' => 'Caste', 'value' => $data->cast->caste_name];
     }
-    if (isset($data->religion) && !empty($data->rel->religion_name ?? null)) {
-        $metaChips[] = $data->rel->religion_name;
+    if (!empty($data->subcast->sub_caste_name ?? null)) {
+        $detailRows[] = ['label' => 'Sub Caste', 'value' => $data->subcast->sub_caste_name];
     }
-    if (isset($data->caste) && !empty($data->cast->caste_name ?? null)) {
-        $metaChips[] = $data->cast->caste_name;
+    if (!empty($data->rashi->rasi ?? null)) {
+        $detailRows[] = ['label' => 'Rasi', 'value' => $data->rashi->rasi];
     }
-    if (isset($data->occupation) && !empty($data->occ->ocp_name ?? null)) {
-        $metaChips[] = $data->occ->ocp_name;
+    if (!empty($data->staars->star ?? null)) {
+        $detailRows[] = ['label' => 'Star', 'value' => $data->staars->star];
     }
     if (!empty($eduName)) {
-        $metaChips[] = $eduName;
+        $detailRows[] = ['label' => 'Education', 'value' => $eduName];
     }
-    if (!empty($data->citi->city_name ?? null)) {
-        $metaChips[] = $data->citi->city_name;
-    }
-    if (!empty($data->country->country_name ?? null)) {
-        $metaChips[] = $data->country->country_name;
+    if (!empty($data->m_status)) {
+        $detailRows[] = ['label' => 'Marital Status', 'value' => $data->m_status];
     }
 @endphp
 <div id="olddata" class="card mb-3 inMainResultCard inBorderColor1">
@@ -89,12 +86,15 @@
                         </p>
                     </div>
 
-                    @if(count($metaChips))
-                    <ul class="inMainResultChips">
-                        @foreach($metaChips as $chip)
-                        <li>{{ $chip }}</li>
+                    @if(count($detailRows))
+                    <dl class="inMainResultDetails">
+                        @foreach($detailRows as $row)
+                        <div class="inMainResultDetail">
+                            <dt>{{ $row['label'] }}</dt>
+                            <dd title="{{ $row['value'] }}">{{ $row['value'] }}</dd>
+                        </div>
                         @endforeach
-                    </ul>
+                    </dl>
                     @endif
                 </a>
                 <div class="row g-0 inMainResultAction">

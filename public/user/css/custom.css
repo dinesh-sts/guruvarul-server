@@ -1128,6 +1128,42 @@ body {
     content: none !important;
     display: none !important;
 }
+.inMainResultDetails{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1rem;
+    row-gap: 0.4rem;
+    margin: 0 0 0.9rem;
+    padding: 0;
+}
+.inMainResultDetail{
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: baseline;
+    column-gap: 0.35rem;
+    min-width: 0;
+    margin: 0;
+}
+.inMainResultDetail dt{
+    margin: 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: #8a8a8a;
+    white-space: nowrap;
+}
+.inMainResultDetail dt::after{
+    content: ":";
+}
+.inMainResultDetail dd{
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #3a3a3a;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 .inMainResultCard .card-text{
     font-size: 14px;
     font-weight: 600;
@@ -1147,6 +1183,39 @@ body {
     display: flex;
     flex-wrap: wrap;
     background: #ffffff;
+}
+@media (max-width: 767.98px) {
+    .inMainResultRow{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .inMainResultPhoto{
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    .inMainResultContent{
+        width: 100% !important;
+    }
+    .inMainResultPhoto,
+    .inMainResultPhotoLink,
+    .inMainResultImg{
+        min-height: 210px;
+        max-height: 250px;
+        border-radius: 12px 12px 0 0;
+    }
+    .inMainResultBody{
+        padding: 1rem 1rem 0.75rem;
+    }
+    .inMainResultDetails{
+        grid-template-columns: 1fr;
+        row-gap: 0.35rem;
+        margin-bottom: 0.75rem;
+    }
+    .inMainResultDetail dt,
+    .inMainResultDetail dd{
+        font-size: 13px;
+    }
 }
 .inMsgViewThumb h5{
     color:var(--color-secondary);
@@ -2138,6 +2207,11 @@ a.inFeturedCard .card{
     .inMainResultChips{
         margin-bottom: 0.65rem;
     }
+    .inMainResultDetails{
+        grid-template-columns: 1fr;
+        row-gap: 0.35rem;
+        margin-bottom: 0.65rem;
+    }
     .inPhotoReqCard .maxH-180{
         max-height: 100%;
         width: 100%;
@@ -2237,4 +2311,6 @@ a.inFeturedCard .card{
     }
 }
 
-
+/* Chosen multi-select inside mobile refine offcanvas */
+#offcanvasExample .chosen-container { width: 100% !important; }
+#offcanvasExample .chosen-container .chosen-drop { z-index: 1100; }

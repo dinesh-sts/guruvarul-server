@@ -430,8 +430,13 @@
         '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},
         '.chosen-select-width': {width: "100%"}
     }
+    var isMobileViewport = window.matchMedia('(max-width: 991.98px)').matches;
     for (var selector in config) {
-        $(selector).chosen(config[selector]);
+        if (isMobileViewport) {
+            $(selector).not('#advancesearch select[multiple]').chosen(config[selector]);
+        } else {
+            $(selector).chosen(config[selector]);
+        }
     }
 </script>
 <script>
@@ -461,9 +466,14 @@
 
     //advance serach
     $('#advancesearch').submit(function(e) {
-        e.preventDefault(); 
-        
-        var formData = $(this).serialize(); 
+        e.preventDefault();
+        var $form = $(this);
+        $form.find('select').each(function() {
+            if ($(this).data('chosen')) {
+                $(this).trigger('chosen:updated');
+            }
+        });
+        var formData = $form.serialize(); 
         $.ajax({
             type: 'POST',
             url: "{{ route('user.searchResult') }}",
