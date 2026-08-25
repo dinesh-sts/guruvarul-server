@@ -74,7 +74,7 @@
                 @endif
             </a>
         </div>
-        <div class="col-md-9 col-lg-9">
+        <div class="col-md-9 col-lg-9 inMainResultContent">
             <div class="card-body inMainResultBody">
                <a href="{{ route('user.memberProfile',$data->matri_id) }}" title="{{$data->matri_id}}" class="text-decoration-none inMainResultInfo">
                     <div class="inMainResultHeader">
